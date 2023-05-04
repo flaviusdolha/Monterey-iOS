@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Monterey.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core/Core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Design/Design.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/flaviusdolha/Documents/Licenta/Monterey/Data/Domain.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Main/Main.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/flaviusdolha/Documents/Licenta/Monterey/Scanner/ReceiptScanner.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:SharedState/SharedState.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Transactions/Transactions.xcodeproj">
+   </FileRef>
+</Workspace>
