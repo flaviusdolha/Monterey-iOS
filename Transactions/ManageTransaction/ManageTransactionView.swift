@@ -27,19 +27,31 @@ struct ManageTransactionView: View {
     // MARK: - Body
 
     var body: some View {
-        VStack(spacing: 16) {
+        ScrollView(showsIndicators: false) {
             amountTextField
+                .padding(.horizontal)
+                .padding(.top, 20)
+                .padding(.bottom, 4)
             descriptionTextField
+                .padding(.horizontal)
+                .padding(.vertical, 4)
             categoryPicker
+                .padding(.horizontal)
+                .padding(.vertical, 4)
             datePicker
+                .padding(.horizontal)
+                .padding(.vertical, 4)
             photoView
+                .padding(.horizontal)
+                .padding(.top, 4)
+                .padding(.bottom, state.type == .add ? 16 : 4)
             if !(state.type == .add) {
                 deleteTransactionButton
+                    .padding(.horizontal)
+                    .padding(.top, 4)
+                    .padding(.bottom, 16)
             }
-            Spacer()
         }
-            .padding(16)
-            .padding(.top, 4)
             .montereyTabBar()
             .montereyNavBar()
             .navigationTitle(navigationTitle)

@@ -80,6 +80,7 @@ public struct TransactionsView: View {
                                 }
                             }
                             .listStyle(.insetGrouped)
+                            .scrollIndicators(.hidden)
                         }
                     }
                 }
@@ -134,7 +135,7 @@ public struct TransactionsView: View {
                 }
                     .offset(y: 6)
                 HStack {
-                    Text(transactionCategory.category.emoji + " " + transactionCategory.category.rawValue.capitalized)
+                    Text(transactionCategory.category.emoji + " " + transactionCategory.category.rawValue.capitalized.localized)
                     Spacer()
                     Text(String(transactionCategory.transactions.totalPrice) + " " + "currency".localized)
                         .foregroundColor(.gray)

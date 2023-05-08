@@ -58,8 +58,8 @@
 		A98838CF293BA41F00A54D01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A98838D0293BA42E00A54D01 /* String+Localization.swift */,
 				A9CE053829EF2358007ADDF0 /* Int+MonthString.swift */,
+				A98838D0293BA42E00A54D01 /* String+Localization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

@@ -39,7 +39,7 @@ class ScannerServiceLive: ScannerService {
                 completion(.failure(.didNotFound))
                 return
             }
-            let words = ["total", "amount", "summe"]
+            let words = ["total", "amount", "summe", "suma"]
             var didFindTotal = false
             for currentObservation in observations {
                 let topCandidate = currentObservation.topCandidates(1)
@@ -52,7 +52,7 @@ class ScannerServiceLive: ScannerService {
                         }
                     } else {
                         let text = String(recognizedText.string.unicodeScalars.filter { CharacterSet.letters.contains($0) })
-                        if words.contains(text.lowercased()) {
+                        if words.contains(where: text.lowercased().contains) {
                             didFindTotal = true
                         }
                     }
