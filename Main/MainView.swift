@@ -24,6 +24,11 @@ public struct MainView: View {
                     Label("Scan".localized, systemImage: "barcode.viewfinder")
                 }
                 .tag(MainRoute.scan)
+            interactor?.settingsView
+                .tabItem {
+                    Label("Settings".localized, systemImage: "gearshape.fill")
+                }
+                .tag(MainRoute.settings)
         }
         .tint(.mint)
     }

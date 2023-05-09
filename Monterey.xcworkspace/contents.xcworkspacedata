@@ -20,6 +20,9 @@
       location = "group:/Users/flaviusdolha/Documents/Licenta/Monterey/Scanner/ReceiptScanner.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Settings/Settings.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SharedState/SharedState.xcodeproj">
    </FileRef>
    <FileRef

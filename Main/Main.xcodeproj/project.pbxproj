@@ -22,6 +22,8 @@
 		A9847E012A0289FA00E053EA /* SharedState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9847DEB2A02453F00E053EA /* SharedState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9847E022A0289FC00E053EA /* Transactions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A951C95029BCBB3B00BC972D /* Transactions.framework */; };
 		A9847E032A0289FC00E053EA /* Transactions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A951C95029BCBB3B00BC972D /* Transactions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9CB8A072A0A7BCE0031867B /* Settings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CB8A062A0A7BCE0031867B /* Settings.framework */; };
+		A9CB8A082A0A7BCE0031867B /* Settings.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9CB8A062A0A7BCE0031867B /* Settings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +38,7 @@
 				A9847E012A0289FA00E053EA /* SharedState.framework in Embed Frameworks */,
 				A9847DFD2A0289F800E053EA /* Domain.framework in Embed Frameworks */,
 				A9847DFA2A0289F700E053EA /* Core.framework in Embed Frameworks */,
+				A9CB8A082A0A7BCE0031867B /* Settings.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,6 +58,7 @@
 		A9847DC12A01594700E053EA /* ReceiptScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ReceiptScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9847DEB2A02453F00E053EA /* SharedState.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharedState.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98838D2293BA46F00A54D01 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CB8A062A0A7BCE0031867B /* Settings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Settings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9DC085C29BCEB040042D4EE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -68,6 +72,7 @@
 				A9847DF92A0289F700E053EA /* Core.framework in Frameworks */,
 				A9847DFE2A0289F900E053EA /* ReceiptScanner.framework in Frameworks */,
 				A9847E002A0289FA00E053EA /* SharedState.framework in Frameworks */,
+				A9CB8A072A0A7BCE0031867B /* Settings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +111,7 @@
 		A970D351293A9748004E89A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9CB8A062A0A7BCE0031867B /* Settings.framework */,
 				A9847DEB2A02453F00E053EA /* SharedState.framework */,
 				A9847DC12A01594700E053EA /* ReceiptScanner.framework */,
 				A918CE622A0149D400B5450F /* Scanner.framework */,
