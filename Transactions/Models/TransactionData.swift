@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 struct TransactionData {
-    var category: Domain.Category
+    var category: ExpenseCategory
     var date: Date
     var note: String
     var picture: UIImage?
@@ -28,7 +28,7 @@ extension TransactionData {
 extension Transaction {
     var data: TransactionData {
         TransactionData(
-            category: Category.init(rawValue: self.category ?? "none") ?? .none,
+            category: ExpenseCategory.init(rawValue: self.category ?? "none") ?? .none,
             date: self.date ?? Date(),
             note: self.note ?? "",
             picture: self.picture,

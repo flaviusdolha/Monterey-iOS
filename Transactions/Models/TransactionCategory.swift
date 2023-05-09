@@ -8,11 +8,11 @@
 import Domain
 
 struct TransactionCategory: Identifiable {
-    let category: Domain.Category
+    let category: ExpenseCategory
     let transactions: [Domain.Transaction]
     var isExpanded: Bool = true
     
-    var id: Domain.Category {
+    var id: ExpenseCategory {
         category
     }
 }

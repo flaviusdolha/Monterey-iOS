@@ -2,3 +2,14 @@
 Monterey/
 *.xcuserstate
 Monterey.xcworkspace/xcuserdata/flaviusdolha.xcuserdatad/UserInterfaceState.xcuserstate
+Settings/Settings.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+SharedState/SharedState.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+Transactions/Transactions.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+Transactions/Transactions/TransactionsInteractor.swift
+Scanner/ReceiptScanner.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+Main/Main.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+Design/Design.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+Data/Domain.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+Core/Core.xcodeproj/xcuserdata/flaviusdolha.xcuserdatad/xcschemes/xcschememanagement.plist
+Data/.DS_Store
+.DS_Store

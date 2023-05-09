@@ -106,10 +106,10 @@ final class TransactionsInteractorLive: TransactionsInteractor {
     }
     
     private func convertToTransactionCategories(_ transactions: [Domain.Transaction]) -> [TransactionCategory] {
-        var categoriesTransactions: [Domain.Category: [Domain.Transaction]] = [:]
+        var categoriesTransactions: [ExpenseCategory: [Domain.Transaction]] = [:]
         transactions.forEach { transaction in
             guard let transactionCategory = transaction.category,
-                  let category = Domain.Category(rawValue: transactionCategory)
+                  let category = ExpenseCategory(rawValue: transactionCategory)
             else { return }
             if let trans = categoriesTransactions[category] {
                 var trns = trans

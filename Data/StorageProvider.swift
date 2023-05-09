@@ -26,6 +26,7 @@ public class StorageProvider {
 
     private let persistentContainer: PersistentContainer
     private var transactions: [Transaction] = []
+    private var incomes: [IncomeData] = []
 
     // MARK: - Lifecycle
     
@@ -47,7 +48,7 @@ extension StorageProvider: Storage {
         do {
             try persistentContainer.viewContext.save()
         } catch {
-            persistentContainer.viewContext.rollback()
+            rollback()
         }
     }
 }
@@ -66,9 +67,25 @@ extension StorageProvider: TransactionStorage {
         }
     }
     
+    public func getIncomes() -> [IncomeData] {
+        let fetchRequest: NSFetchRequest<IncomeData> = IncomeData.fetchRequest()
+
+        do {
+            incomes = try persistentContainer.viewContext.fetch(fetchRequest)
+            return incomes
+        } catch {
+            return []
+        }
+    }
+    
     public func saveTransaction(note: String, date: Date, price: Float, category: String, picture: UIImage?) {
         let transaction = Transaction(context: persistentContainer.viewContext)
         updateTransaction(transaction, note: note, date: date, price: price, category: category, picture: picture)
+    }
+    
+    public func saveIncome(date: Date, value: Float, category: String) {
+        let income = IncomeData(context: persistentContainer.viewContext)
+        updateIncome(income, date: date, value: value, category: category)
     }
     
     public func updateTransaction(_ transaction: Transaction, note: String, date: Date, price: Float, category: String, picture: UIImage?) {
@@ -77,21 +94,26 @@ extension StorageProvider: TransactionStorage {
         transaction.price = price
         transaction.category = category
         transaction.picture = picture
-        do {
-            try persistentContainer.viewContext.save()
-        } catch {
-            persistentContainer.viewContext.rollback()
-        }
+        saveUpdates()
+    }
+    
+    public func updateIncome(_ income: IncomeData, date: Date, value: Float, category: String) {
+        income.date = date
+        income.value = value
+        income.category = category
+        saveUpdates()
     }
     
     public func deleteTransaction(_ transaction: Transaction) {
         persistentContainer.viewContext.delete(transaction)
 
-        do {
-            try persistentContainer.viewContext.save()
-        } catch {
-            persistentContainer.viewContext.rollback()
-        }
+        saveUpdates()
+    }
+    
+    public func deleteIncome(_ income: IncomeData) {
+        persistentContainer.viewContext.delete(income)
+        
+        saveUpdates()
     }
     
     public func rollback() {

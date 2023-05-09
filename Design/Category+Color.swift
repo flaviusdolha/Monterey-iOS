@@ -8,7 +8,7 @@
 import Domain
 import SwiftUI
 
-public extension Domain.Category {
+public extension ExpenseCategory {
     var color: Color {
         switch self {
         case .none:

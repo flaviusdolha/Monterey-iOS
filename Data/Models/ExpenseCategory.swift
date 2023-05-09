@@ -7,9 +7,9 @@
 
 import Foundation
 
-// MARK: - Category
+// MARK: - ExpenseCategory
 
-public enum Category: String, CaseIterable {
+public enum ExpenseCategory: String, CaseIterable {
     case none
     case business
     case car
@@ -26,7 +26,7 @@ public enum Category: String, CaseIterable {
     case transportation
 }
 
-public extension Category {
+public extension ExpenseCategory {
     var emoji: String {
         switch self {
         case .none:

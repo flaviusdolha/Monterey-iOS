@@ -125,7 +125,7 @@ struct ManageTransactionView: View {
         HStack(spacing: -8) {
             Text("Category".localized + ": ")
             Picker("Category".localized, selection: $state.transactionData.category) {
-                ForEach(Domain.Category.allCases, id: \.self) { category in
+                ForEach(ExpenseCategory.allCases, id: \.self) { category in
                     Text(category.emoji + " " + category.rawValue.capitalized.localized)
                 }
             }
