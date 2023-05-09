@@ -16,6 +16,7 @@ final class ManageTransactionState: ObservableObject {
     @Published var transactionData: TransactionData
     @Published var type: ManageTransactionType
     @Published var isShowingConfirmDelete: Bool = false
+    @Published var currency: Currency = .usd
     
     init(transaction: TransactionData, type: ManageTransactionType) {
         self.transactionData = transaction

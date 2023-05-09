@@ -64,7 +64,7 @@ public struct TransactionsView: View {
                         VStack {
                             List {
                                 HStack {
-                                    Text("\("Total".localized): " + String(state.currentTransactions.totalPrice) + " " + "currency".localized)
+                                    Text("\("Total".localized): " + String(state.currentTransactions.totalPrice) + " " + state.currency.symbol)
                                         .font(.headline)
                                     Spacer()
                                 }
@@ -137,7 +137,7 @@ public struct TransactionsView: View {
                 HStack {
                     Text(transactionCategory.category.emoji + " " + transactionCategory.category.rawValue.capitalized.localized)
                     Spacer()
-                    Text(String(transactionCategory.transactions.totalPrice) + " " + "currency".localized)
+                    Text(String(transactionCategory.transactions.totalPrice) + " " + state.currency.symbol)
                         .foregroundColor(.gray)
                 }
             }
@@ -157,7 +157,7 @@ public struct TransactionsView: View {
             Text(transaction.note ?? "")
                 .font(.callout)
             Spacer()
-            Text(String(transaction.price) + " \("currency".localized)")
+            Text(String(transaction.price) + " \(state.currency.symbol)")
                 .font(.callout)
                 .foregroundColor(.gray)
             Image(systemName: "arrow.right")

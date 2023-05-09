@@ -10,4 +10,5 @@ final class TransactionsState: ObservableObject {
     @Published var currentTransactions: [TransactionCategory] = []
     @Published var totalPrice = 0
     @Published var selectedMonthDate = Date()
+    @Published var currency: Currency = .usd
 }

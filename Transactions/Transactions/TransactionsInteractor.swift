@@ -1,4 +1,5 @@
 import Combine
+import Core
 import Domain
 import SharedState
 
@@ -35,6 +36,7 @@ final class TransactionsInteractorLive: TransactionsInteractor {
         self.transactionsSharedState = transactionsSharedState
         state = TransactionsState()
         loadTransactions()
+        loadCurrency()
     }
 
     // MARK: - Public Methods
@@ -94,6 +96,13 @@ final class TransactionsInteractorLive: TransactionsInteractor {
         let transactions = transactionStorage.getTransactions()
         state.transactionCategories = convertToTransactionCategories(transactions)
         filterCurrentTransactionCategories()
+    }
+    
+    private func loadCurrency() {
+        if let currencyString = UserDefaults.standard.string(forKey: UserDefaultsKeys.currency),
+           let currency = Currency(rawValue: currencyString) {
+            state.currency = currency
+        }
     }
     
     private func convertToTransactionCategories(_ transactions: [Domain.Transaction]) -> [TransactionCategory] {

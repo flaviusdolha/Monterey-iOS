@@ -1,4 +1,5 @@
 import Combine
+import Core
 import Domain
 import PhotosUI
 import SharedState
@@ -45,6 +46,7 @@ final class ManageTransactionInteractorLive: ManageTransactionInteractor {
             transactionData = incomingTransaction.data
         }
         state = ManageTransactionState(transaction: transactionData, type: type)
+        loadCurrency()
     }
     
     // MARK: Instance Methods
@@ -96,6 +98,10 @@ final class ManageTransactionInteractorLive: ManageTransactionInteractor {
         picture(state.transactionData.picture)
     }
     
-    func onPriceTextFieldAppear(_ price: (Float) -> Void) {
+    private func loadCurrency() {
+        if let currencyString = UserDefaults.standard.string(forKey: UserDefaultsKeys.currency),
+           let currency = Currency(rawValue: currencyString) {
+            state.currency = currency
+        }
     }
 }

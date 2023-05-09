@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A98838C9293BA41000A54D01 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = A98838C8293BA41000A54D01 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A98838D1293BA42E00A54D01 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98838D0293BA42E00A54D01 /* String+Localization.swift */; };
+		A9CB8A0C2A0A83630031867B /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB8A0B2A0A83630031867B /* UserDefaultsKeys.swift */; };
 		A9CE053929EF2358007ADDF0 /* Int+MonthString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE053829EF2358007ADDF0 /* Int+MonthString.swift */; };
 /* End PBXBuildFile section */
 
@@ -16,6 +17,7 @@
 		A98838C5293BA41000A54D01 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98838C8293BA41000A54D01 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		A98838D0293BA42E00A54D01 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
+		A9CB8A0B2A0A83630031867B /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		A9CE053829EF2358007ADDF0 /* Int+MonthString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+MonthString.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,6 +35,7 @@
 		A98838BB293BA41000A54D01 = {
 			isa = PBXGroup;
 			children = (
+				A9CB8A0B2A0A83630031867B /* UserDefaultsKeys.swift */,
 				A98838CF293BA41F00A54D01 /* Extensions */,
 				A98838C7293BA41000A54D01 /* Core */,
 				A98838C6293BA41000A54D01 /* Products */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A98838D1293BA42E00A54D01 /* String+Localization.swift in Sources */,
+				A9CB8A0C2A0A83630031867B /* UserDefaultsKeys.swift in Sources */,
 				A9CE053929EF2358007ADDF0 /* Int+MonthString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

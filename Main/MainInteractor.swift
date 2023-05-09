@@ -1,4 +1,6 @@
+import Core
 import Combine
+import Domain
 import ReceiptScanner
 import Settings
 import SwiftUI
@@ -60,5 +62,9 @@ final class MainInteractorLive: MainInteractor {
             }
         }
         .store(in: &cancellables)
+        guard let _ = UserDefaults.standard.string(forKey: UserDefaultsKeys.currency) else {
+            UserDefaults.standard.set(Currency.usd.rawValue, forKey: UserDefaultsKeys.currency)
+            return
+        }
     }
 }

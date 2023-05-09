@@ -18,6 +18,8 @@
 		A9CB8A012A0A79C20031867B /* SettingsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB89FD2A0A79C20031867B /* SettingsState.swift */; };
 		A9CB8A032A0A79F50031867B /* SettingsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB8A022A0A79F50031867B /* SettingsEnvironment.swift */; };
 		A9CB8A052A0A7A5F0031867B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB8A042A0A7A5F0031867B /* SettingsRouter.swift */; };
+		A9CB8A0E2A0A86110031867B /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CB8A0D2A0A86110031867B /* Domain.framework */; };
+		A9CB8A0F2A0A86110031867B /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9CB8A0D2A0A86110031867B /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +29,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A9CB8A0F2A0A86110031867B /* Domain.framework in Embed Frameworks */,
 				A9CB89F92A0A783E0031867B /* Design.framework in Embed Frameworks */,
 				A9CB89F52A0A78390031867B /* Core.framework in Embed Frameworks */,
 			);
@@ -46,6 +49,7 @@
 		A9CB89FD2A0A79C20031867B /* SettingsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsState.swift; sourceTree = "<group>"; };
 		A9CB8A022A0A79F50031867B /* SettingsEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEnvironment.swift; sourceTree = "<group>"; };
 		A9CB8A042A0A7A5F0031867B /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		A9CB8A0D2A0A86110031867B /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9CB8A0E2A0A86110031867B /* Domain.framework in Frameworks */,
 				A9CB89F82A0A783E0031867B /* Design.framework in Frameworks */,
 				A9CB89F42A0A78390031867B /* Core.framework in Frameworks */,
 			);
@@ -95,6 +100,7 @@
 		A9CB89F22A0A78390031867B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A9CB8A0D2A0A86110031867B /* Domain.framework */,
 				A9CB89F72A0A783E0031867B /* Design.framework */,
 				A9CB89F32A0A78390031867B /* Core.framework */,
 			);

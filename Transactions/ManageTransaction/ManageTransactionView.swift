@@ -93,7 +93,7 @@ struct ManageTransactionView: View {
             TextField("Amount".localized, value: $price, formatter: formatter)
                 .font(.system(size: 22))
                 .keyboardType(.decimalPad)
-            Text("currency".localized)
+            Text(state.currency.symbol)
                 .font(.system(size: 22))
                 .foregroundColor(.mint)
                 .fontWeight(.bold)
@@ -124,7 +124,7 @@ struct ManageTransactionView: View {
     private var categoryPicker: some View {
         HStack(spacing: -8) {
             Text("Category".localized + ": ")
-            Picker("Test", selection: $state.transactionData.category) {
+            Picker("Category".localized, selection: $state.transactionData.category) {
                 ForEach(Domain.Category.allCases, id: \.self) { category in
                     Text(category.emoji + " " + category.rawValue.capitalized.localized)
                 }

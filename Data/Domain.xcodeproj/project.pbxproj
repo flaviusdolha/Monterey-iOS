@@ -15,6 +15,7 @@
 		A970D30A293A1436004E89A9 /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = A970D309293A1436004E89A9 /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A970D317293A89DF004E89A9 /* MontereyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A970D315293A89DF004E89A9 /* MontereyModel.xcdatamodeld */; };
 		A970D319293A8A06004E89A9 /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970D318293A8A06004E89A9 /* StorageProvider.swift */; };
+		A9CB8A0A2A0A80410031867B /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB8A092A0A80410031867B /* Currency.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A970D309293A1436004E89A9 /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		A970D316293A89DF004E89A9 /* MontereyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MontereyModel.xcdatamodel; sourceTree = "<group>"; };
 		A970D318293A8A06004E89A9 /* StorageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
+		A9CB8A092A0A80410031867B /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				A96CF2AF29B773D600BAAC4E /* Category.swift */,
+				A9CB8A092A0A80410031867B /* Currency.swift */,
 				A90919AF296445A60013D096 /* Transaction+CoreDataClass.swift */,
 				A90919B0296445A60013D096 /* Transaction+CoreDataProperties.swift */,
 			);
@@ -179,6 +182,7 @@
 				A90919B5296447290013D096 /* TransactionStorage.swift in Sources */,
 				A90919B1296445A60013D096 /* Transaction+CoreDataClass.swift in Sources */,
 				A970D319293A8A06004E89A9 /* StorageProvider.swift in Sources */,
+				A9CB8A0A2A0A80410031867B /* Currency.swift in Sources */,
 				A970D317293A89DF004E89A9 /* MontereyModel.xcdatamodeld in Sources */,
 				A909199C2964420D0013D096 /* UIImageTransformer.swift in Sources */,
 				A96CF2B029B773D600BAAC4E /* Category.swift in Sources */,

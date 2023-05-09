@@ -1,4 +1,6 @@
 import Combine
+import Core
+import Domain
 
 // MARK: - SettingsInteractor
 
@@ -20,5 +22,13 @@ final class SettingsInteractorLive: SettingsInteractor {
     init(router: SettingsRouter) {
         self.router = router
         state = SettingsState()
+        loadCurrency()
+    }
+    
+    private func loadCurrency() {
+        if let currencyString = UserDefaults.standard.string(forKey: UserDefaultsKeys.currency),
+           let currency = Currency(rawValue: currencyString) {
+            state.currency = currency
+        }
     }
 }

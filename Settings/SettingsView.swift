@@ -1,5 +1,6 @@
 import Core
 import Design
+import Domain
 import SwiftUI
 
 // MARK: - SettingsView
@@ -16,8 +17,14 @@ public struct SettingsView: View {
 
     public var body: some View {
         NavigationStack(path: router.binding) {
-            VStack {
-                Text("")
+            List {
+                HStack {
+                    Picker("Currency".localized, selection: $state.currency) {
+                        ForEach(Currency.allCases, id: \.self) { currency in
+                            Text(currency.stringDescription(withFlag: true))
+                        }
+                    }
+                }
             }
             .montereyNavBar()
             .montereyTabBar()
