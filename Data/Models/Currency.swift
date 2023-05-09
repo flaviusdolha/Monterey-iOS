@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Currency
+
 public enum Currency: String, CaseIterable {
     case chf = "CHF"
     case eur = "EUR"
@@ -14,6 +16,8 @@ public enum Currency: String, CaseIterable {
     case jpy = "JPY"
     case ron = "RON"
     case usd = "USD"
+    
+    // MARK: - Properties
     
     public var symbol: String {
         switch self {
@@ -48,6 +52,8 @@ public enum Currency: String, CaseIterable {
             return "🇺🇸"
         }
     }
+    
+    // MARK: - Instance Methods
     
     public func stringDescription(withFlag: Bool) -> String {
         (withFlag ? "\(self.flag) " : "") + self.rawValue + " (\(self.symbol))"

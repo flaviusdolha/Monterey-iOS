@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - Category
+
 public enum Category: String, CaseIterable {
     case none
     case business
