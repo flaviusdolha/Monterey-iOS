@@ -7,32 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A918CE542A01482800B5450F /* Scanner.h in Headers */ = {isa = PBXBuildFile; fileRef = A918CE532A01482800B5450F /* Scanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A918CE5E2A01496200B5450F /* ScannerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918CE5A2A01496200B5450F /* ScannerAssembly.swift */; };
-		A918CE5F2A01496200B5450F /* ScannerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918CE5B2A01496200B5450F /* ScannerInteractor.swift */; };
-		A918CE602A01496200B5450F /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918CE5C2A01496200B5450F /* ScannerView.swift */; };
-		A918CE612A01496200B5450F /* ScannerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918CE5D2A01496200B5450F /* ScannerState.swift */; };
-		A918CE692A014D7E00B5450F /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A918CE672A014D7E00B5450F /* Core.framework */; };
-		A918CE6A2A014D7E00B5450F /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A918CE672A014D7E00B5450F /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A918CE6B2A014D7E00B5450F /* Design.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A918CE682A014D7E00B5450F /* Design.framework */; };
-		A918CE6C2A014D7E00B5450F /* Design.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A918CE682A014D7E00B5450F /* Design.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A918CE6F2A014E2100B5450F /* ScannerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918CE6E2A014E2100B5450F /* ScannerRouter.swift */; };
-		A918CE712A01513700B5450F /* ScannerEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A918CE702A01513700B5450F /* ScannerEnvironment.swift */; };
-		A9847DEE2A02455000E053EA /* SharedState.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9847DED2A02455000E053EA /* SharedState.framework */; };
-		A9847DEF2A02455000E053EA /* SharedState.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9847DED2A02455000E053EA /* SharedState.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A9847E112A02AB1100E053EA /* ScannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9847E102A02AB1100E053EA /* ScannerService.swift */; };
+		A91EBDB32A0BEA2500D2F13C /* Authentication.h in Headers */ = {isa = PBXBuildFile; fileRef = A91EBDB22A0BEA2500D2F13C /* Authentication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A91EBDBC2A0BEA3800D2F13C /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91EBDBA2A0BEA3800D2F13C /* Core.framework */; };
+		A91EBDBD2A0BEA3800D2F13C /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A91EBDBA2A0BEA3800D2F13C /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A91EBDBE2A0BEA3800D2F13C /* Design.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91EBDBB2A0BEA3800D2F13C /* Design.framework */; };
+		A91EBDBF2A0BEA3800D2F13C /* Design.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A91EBDBB2A0BEA3800D2F13C /* Design.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A91EBDC82A0BEAC600D2F13C /* AuthenticationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBDC42A0BEAC600D2F13C /* AuthenticationAssembly.swift */; };
+		A91EBDC92A0BEAC600D2F13C /* AuthenticationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBDC52A0BEAC600D2F13C /* AuthenticationInteractor.swift */; };
+		A91EBDCA2A0BEAC600D2F13C /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBDC62A0BEAC600D2F13C /* AuthenticationView.swift */; };
+		A91EBDCB2A0BEAC600D2F13C /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBDC72A0BEAC600D2F13C /* AuthenticationState.swift */; };
+		A91EBDCD2A0BEB4800D2F13C /* AuthenticationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBDCC2A0BEB4800D2F13C /* AuthenticationRouter.swift */; };
+		A91EBDCF2A0BEB9A00D2F13C /* AuthenticationEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBDCE2A0BEB9A00D2F13C /* AuthenticationEnvironment.swift */; };
+		A9924BBF2A0C2D9000608BA4 /* KeychainService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9924BBE2A0C2D9000608BA4 /* KeychainService.framework */; };
+		A9924BC02A0C2D9000608BA4 /* KeychainService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9924BBE2A0C2D9000608BA4 /* KeychainService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A918CE6D2A014D7E00B5450F /* Embed Frameworks */ = {
+		A91EBDC02A0BEA3800D2F13C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A918CE6C2A014D7E00B5450F /* Design.framework in Embed Frameworks */,
-				A9847DEF2A02455000E053EA /* SharedState.framework in Embed Frameworks */,
-				A918CE6A2A014D7E00B5450F /* Core.framework in Embed Frameworks */,
+				A91EBDBF2A0BEA3800D2F13C /* Design.framework in Embed Frameworks */,
+				A91EBDBD2A0BEA3800D2F13C /* Core.framework in Embed Frameworks */,
+				A9924BC02A0C2D9000608BA4 /* KeychainService.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,72 +39,70 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A918CE502A01482800B5450F /* ReceiptScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReceiptScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A918CE532A01482800B5450F /* Scanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Scanner.h; sourceTree = "<group>"; };
-		A918CE5A2A01496200B5450F /* ScannerAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerAssembly.swift; sourceTree = "<group>"; };
-		A918CE5B2A01496200B5450F /* ScannerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerInteractor.swift; sourceTree = "<group>"; };
-		A918CE5C2A01496200B5450F /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
-		A918CE5D2A01496200B5450F /* ScannerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerState.swift; sourceTree = "<group>"; };
-		A918CE672A014D7E00B5450F /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A918CE682A014D7E00B5450F /* Design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A918CE6E2A014E2100B5450F /* ScannerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerRouter.swift; sourceTree = "<group>"; };
-		A918CE702A01513700B5450F /* ScannerEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerEnvironment.swift; sourceTree = "<group>"; };
-		A9847DED2A02455000E053EA /* SharedState.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SharedState.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9847E102A02AB1100E053EA /* ScannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerService.swift; sourceTree = "<group>"; };
+		A91EBDAF2A0BEA2500D2F13C /* Authentication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Authentication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91EBDB22A0BEA2500D2F13C /* Authentication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Authentication.h; sourceTree = "<group>"; };
+		A91EBDBA2A0BEA3800D2F13C /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91EBDBB2A0BEA3800D2F13C /* Design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91EBDC42A0BEAC600D2F13C /* AuthenticationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAssembly.swift; sourceTree = "<group>"; };
+		A91EBDC52A0BEAC600D2F13C /* AuthenticationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationInteractor.swift; sourceTree = "<group>"; };
+		A91EBDC62A0BEAC600D2F13C /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		A91EBDC72A0BEAC600D2F13C /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		A91EBDCC2A0BEB4800D2F13C /* AuthenticationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRouter.swift; sourceTree = "<group>"; };
+		A91EBDCE2A0BEB9A00D2F13C /* AuthenticationEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationEnvironment.swift; sourceTree = "<group>"; };
+		A9924BBE2A0C2D9000608BA4 /* KeychainService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KeychainService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A918CE4D2A01482800B5450F /* Frameworks */ = {
+		A91EBDAC2A0BEA2500D2F13C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A918CE6B2A014D7E00B5450F /* Design.framework in Frameworks */,
-				A9847DEE2A02455000E053EA /* SharedState.framework in Frameworks */,
-				A918CE692A014D7E00B5450F /* Core.framework in Frameworks */,
+				A91EBDBE2A0BEA3800D2F13C /* Design.framework in Frameworks */,
+				A91EBDBC2A0BEA3800D2F13C /* Core.framework in Frameworks */,
+				A9924BBF2A0C2D9000608BA4 /* KeychainService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A918CE462A01482800B5450F = {
+		A91EBDA52A0BEA2500D2F13C = {
 			isa = PBXGroup;
 			children = (
-				A918CE5A2A01496200B5450F /* ScannerAssembly.swift */,
-				A918CE702A01513700B5450F /* ScannerEnvironment.swift */,
-				A918CE5B2A01496200B5450F /* ScannerInteractor.swift */,
-				A918CE6E2A014E2100B5450F /* ScannerRouter.swift */,
-				A9847E102A02AB1100E053EA /* ScannerService.swift */,
-				A918CE5C2A01496200B5450F /* ScannerView.swift */,
-				A918CE5D2A01496200B5450F /* ScannerState.swift */,
-				A918CE522A01482800B5450F /* Scanner */,
-				A918CE512A01482800B5450F /* Products */,
-				A918CE662A014D7E00B5450F /* Frameworks */,
+				A91EBDCE2A0BEB9A00D2F13C /* AuthenticationEnvironment.swift */,
+				A91EBDCC2A0BEB4800D2F13C /* AuthenticationRouter.swift */,
+				A91EBDC42A0BEAC600D2F13C /* AuthenticationAssembly.swift */,
+				A91EBDC52A0BEAC600D2F13C /* AuthenticationInteractor.swift */,
+				A91EBDC62A0BEAC600D2F13C /* AuthenticationView.swift */,
+				A91EBDC72A0BEAC600D2F13C /* AuthenticationState.swift */,
+				A91EBDB12A0BEA2500D2F13C /* Authentication */,
+				A91EBDB02A0BEA2500D2F13C /* Products */,
+				A91EBDB92A0BEA3800D2F13C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		A918CE512A01482800B5450F /* Products */ = {
+		A91EBDB02A0BEA2500D2F13C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A918CE502A01482800B5450F /* ReceiptScanner.framework */,
+				A91EBDAF2A0BEA2500D2F13C /* Authentication.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A918CE522A01482800B5450F /* Scanner */ = {
+		A91EBDB12A0BEA2500D2F13C /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				A918CE532A01482800B5450F /* Scanner.h */,
+				A91EBDB22A0BEA2500D2F13C /* Authentication.h */,
 			);
-			path = Scanner;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
-		A918CE662A014D7E00B5450F /* Frameworks */ = {
+		A91EBDB92A0BEA3800D2F13C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A9847DED2A02455000E053EA /* SharedState.framework */,
-				A918CE672A014D7E00B5450F /* Core.framework */,
-				A918CE682A014D7E00B5450F /* Design.framework */,
+				A9924BBE2A0C2D9000608BA4 /* KeychainService.framework */,
+				A91EBDBA2A0BEA3800D2F13C /* Core.framework */,
+				A91EBDBB2A0BEA3800D2F13C /* Design.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,52 +110,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A918CE4B2A01482800B5450F /* Headers */ = {
+		A91EBDAA2A0BEA2500D2F13C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A918CE542A01482800B5450F /* Scanner.h in Headers */,
+				A91EBDB32A0BEA2500D2F13C /* Authentication.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A918CE4F2A01482800B5450F /* ReceiptScanner */ = {
+		A91EBDAE2A0BEA2500D2F13C /* Authentication */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A918CE572A01482800B5450F /* Build configuration list for PBXNativeTarget "ReceiptScanner" */;
+			buildConfigurationList = A91EBDB62A0BEA2500D2F13C /* Build configuration list for PBXNativeTarget "Authentication" */;
 			buildPhases = (
-				A918CE4B2A01482800B5450F /* Headers */,
-				A918CE4C2A01482800B5450F /* Sources */,
-				A918CE4D2A01482800B5450F /* Frameworks */,
-				A918CE4E2A01482800B5450F /* Resources */,
-				A918CE6D2A014D7E00B5450F /* Embed Frameworks */,
+				A91EBDAA2A0BEA2500D2F13C /* Headers */,
+				A91EBDAB2A0BEA2500D2F13C /* Sources */,
+				A91EBDAC2A0BEA2500D2F13C /* Frameworks */,
+				A91EBDAD2A0BEA2500D2F13C /* Resources */,
+				A91EBDC02A0BEA3800D2F13C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ReceiptScanner;
-			productName = Scanner;
-			productReference = A918CE502A01482800B5450F /* ReceiptScanner.framework */;
+			name = Authentication;
+			productName = Authentication;
+			productReference = A91EBDAF2A0BEA2500D2F13C /* Authentication.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A918CE472A01482800B5450F /* Project object */ = {
+		A91EBDA62A0BEA2500D2F13C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					A918CE4F2A01482800B5450F = {
+					A91EBDAE2A0BEA2500D2F13C = {
 						CreatedOnToolsVersion = 14.3;
 						LastSwiftMigration = 1430;
 					};
 				};
 			};
-			buildConfigurationList = A918CE4A2A01482800B5450F /* Build configuration list for PBXProject "ReceiptScanner" */;
+			buildConfigurationList = A91EBDA92A0BEA2500D2F13C /* Build configuration list for PBXProject "Authentication" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -166,18 +163,18 @@
 				en,
 				Base,
 			);
-			mainGroup = A918CE462A01482800B5450F;
-			productRefGroup = A918CE512A01482800B5450F /* Products */;
+			mainGroup = A91EBDA52A0BEA2500D2F13C;
+			productRefGroup = A91EBDB02A0BEA2500D2F13C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A918CE4F2A01482800B5450F /* ReceiptScanner */,
+				A91EBDAE2A0BEA2500D2F13C /* Authentication */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A918CE4E2A01482800B5450F /* Resources */ = {
+		A91EBDAD2A0BEA2500D2F13C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -187,24 +184,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A918CE4C2A01482800B5450F /* Sources */ = {
+		A91EBDAB2A0BEA2500D2F13C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A918CE6F2A014E2100B5450F /* ScannerRouter.swift in Sources */,
-				A918CE612A01496200B5450F /* ScannerState.swift in Sources */,
-				A918CE602A01496200B5450F /* ScannerView.swift in Sources */,
-				A918CE5E2A01496200B5450F /* ScannerAssembly.swift in Sources */,
-				A918CE712A01513700B5450F /* ScannerEnvironment.swift in Sources */,
-				A9847E112A02AB1100E053EA /* ScannerService.swift in Sources */,
-				A918CE5F2A01496200B5450F /* ScannerInteractor.swift in Sources */,
+				A91EBDC92A0BEAC600D2F13C /* AuthenticationInteractor.swift in Sources */,
+				A91EBDCF2A0BEB9A00D2F13C /* AuthenticationEnvironment.swift in Sources */,
+				A91EBDCB2A0BEAC600D2F13C /* AuthenticationState.swift in Sources */,
+				A91EBDCD2A0BEB4800D2F13C /* AuthenticationRouter.swift in Sources */,
+				A91EBDC82A0BEAC600D2F13C /* AuthenticationAssembly.swift in Sources */,
+				A91EBDCA2A0BEAC600D2F13C /* AuthenticationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A918CE552A01482800B5450F /* Debug */ = {
+		A91EBDB42A0BEA2500D2F13C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,7 +263,7 @@
 			};
 			name = Debug;
 		};
-		A918CE562A01482800B5450F /* Release */ = {
+		A91EBDB52A0BEA2500D2F13C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -324,7 +320,7 @@
 			};
 			name = Release;
 		};
-		A918CE582A01482800B5450F /* Debug */ = {
+		A91EBDB72A0BEA2500D2F13C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -348,7 +344,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.Scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.Authentication;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -358,7 +354,7 @@
 			};
 			name = Debug;
 		};
-		A918CE592A01482800B5450F /* Release */ = {
+		A91EBDB82A0BEA2500D2F13C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -382,7 +378,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.Scanner;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.Authentication;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -394,25 +390,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A918CE4A2A01482800B5450F /* Build configuration list for PBXProject "ReceiptScanner" */ = {
+		A91EBDA92A0BEA2500D2F13C /* Build configuration list for PBXProject "Authentication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A918CE552A01482800B5450F /* Debug */,
-				A918CE562A01482800B5450F /* Release */,
+				A91EBDB42A0BEA2500D2F13C /* Debug */,
+				A91EBDB52A0BEA2500D2F13C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A918CE572A01482800B5450F /* Build configuration list for PBXNativeTarget "ReceiptScanner" */ = {
+		A91EBDB62A0BEA2500D2F13C /* Build configuration list for PBXNativeTarget "Authentication" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A918CE582A01482800B5450F /* Debug */,
-				A918CE592A01482800B5450F /* Release */,
+				A91EBDB72A0BEA2500D2F13C /* Debug */,
+				A91EBDB82A0BEA2500D2F13C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A918CE472A01482800B5450F /* Project object */;
+	rootObject = A91EBDA62A0BEA2500D2F13C /* Project object */;
 }

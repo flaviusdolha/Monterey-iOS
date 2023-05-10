@@ -5,6 +5,9 @@
       location = "group:Monterey.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Authentication/Authentication.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Core/Core.xcodeproj">
    </FileRef>
    <FileRef
@@ -12,6 +15,9 @@
    </FileRef>
    <FileRef
       location = "group:/Users/flaviusdolha/Documents/Licenta/Monterey/Data/Domain.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:KeychainService/KeychainService.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Main/Main.xcodeproj">

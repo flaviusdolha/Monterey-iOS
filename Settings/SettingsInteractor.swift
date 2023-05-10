@@ -6,6 +6,8 @@ import Domain
 
 protocol SettingsInteractor: AnyObject {
     var state: SettingsState { get }
+    
+    func onChangePasscodePressed()
 }
 
 // MARK: - SettingsInteractorLive
@@ -23,6 +25,11 @@ final class SettingsInteractorLive: SettingsInteractor {
         self.router = router
         state = SettingsState()
         loadCurrency()
+        loadUsesBiometric()
+    }
+    
+    func onChangePasscodePressed() {
+        router.push(.changePasscode)
     }
     
     private func loadCurrency() {
@@ -30,5 +37,9 @@ final class SettingsInteractorLive: SettingsInteractor {
            let currency = Currency(rawValue: currencyString) {
             state.currency = currency
         }
+    }
+    
+    private func loadUsesBiometric() {
+        state.usesBiometric = UserDefaults.standard.bool(forKey: UserDefaultsKeys.usesBiometric)
     }
 }

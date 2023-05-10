@@ -1,3 +1,4 @@
+import Authentication
 import Core
 import Combine
 import Domain
@@ -15,6 +16,7 @@ protocol MainInteractor: AnyObject {
     var transactionsView: AnyView { get }
     var reportsView: AnyView { get }
     var settingsView: AnyView { get }
+    var authenticationView: AnyView { get }
 }
 
 // MARK: - MainInteractorLive
@@ -41,6 +43,10 @@ final class MainInteractorLive: MainInteractor {
     private lazy var reportsAssembly: ReportsAssembly = {
         ReportsAssembly()
     }()
+    
+    private lazy var authenticationAssembly: AuthenticationAssembly = {
+        AuthenticationAssembly()
+    }()
 
     var scannerView: AnyView {
         AnyView(scannerAssembly.scannerView())
@@ -58,6 +64,10 @@ final class MainInteractorLive: MainInteractor {
         AnyView(reportsAssembly.reportsView())
     }
     
+    var authenticationView: AnyView {
+        AnyView(authenticationAssembly.authenticationView())
+    }
+    
     // MARK: - Lifecycle
 
     init() {
@@ -69,6 +79,15 @@ final class MainInteractorLive: MainInteractor {
                 self?.state.transactionsSharedState.price = price
                 self?.state.transactionsSharedState.picture = picture
                 self?.state.route = .transactions
+            }
+        }
+        .store(in: &cancellables)
+        authenticationAssembly.externalRouter.sink { [weak self] route in
+            switch route {
+            case .authenticated:
+                withAnimation {
+                    self?.state.isAuthenticated = true
+                }
             }
         }
         .store(in: &cancellables)

@@ -18,12 +18,31 @@ public struct SettingsView: View {
     public var body: some View {
         NavigationStack(path: router.binding) {
             List {
-                HStack {
-                    Picker("Currency".localized, selection: $state.currency) {
-                        ForEach(Currency.allCases, id: \.self) { currency in
-                            Text(currency.stringDescription(withFlag: true))
+                Section {
+                    HStack {
+                        Picker("Currency".localized, selection: $state.currency) {
+                            ForEach(Currency.allCases, id: \.self) { currency in
+                                Text(currency.stringDescription(withFlag: true))
+                            }
                         }
                     }
+                } header: {
+                    Text("Preferences".localized)
+                }
+                Section {
+                    HStack {
+                        Text("Change Passcode".localized)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.gray)
+                    }
+                    .onTapGesture {
+                        interactor?.onChangePasscodePressed()
+                    }
+                    Toggle("Use biometric authentication", isOn: $state.usesBiometric)
+                        .tint(.mint)
+                } header: {
+                    Text("Authentication".localized)
                 }
             }
             .montereyNavBar()

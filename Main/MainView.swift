@@ -13,29 +13,33 @@ public struct MainView: View {
     // MARK: - Body
 
     public var body: some View {
-        TabView(selection: $state.route) {
-            interactor?.transactionsView
-                .tabItem {
-                    Label("Transactions".localized, systemImage: "list.bullet.rectangle")
-                }
-                .tag(MainRoute.transactions)
-            interactor?.scannerView
-                .tabItem {
-                    Label("Scan".localized, systemImage: "barcode.viewfinder")
-                }
-                .tag(MainRoute.scan)
-            interactor?.reportsView
-                .tabItem {
-                    Label("Reports".localized, systemImage: "chart.bar.xaxis")
-                }
-                .tag(MainRoute.reports)
-            interactor?.settingsView
-                .tabItem {
-                    Label("Settings".localized, systemImage: "gearshape.fill")
-                }
-                .tag(MainRoute.settings)
+        if state.isAuthenticated {
+            TabView(selection: $state.route) {
+                interactor?.transactionsView
+                    .tabItem {
+                        Label("Transactions".localized, systemImage: "list.bullet.rectangle")
+                    }
+                    .tag(MainRoute.transactions)
+                interactor?.scannerView
+                    .tabItem {
+                        Label("Scan".localized, systemImage: "barcode.viewfinder")
+                    }
+                    .tag(MainRoute.scan)
+                interactor?.reportsView
+                    .tabItem {
+                        Label("Reports".localized, systemImage: "chart.bar.xaxis")
+                    }
+                    .tag(MainRoute.reports)
+                interactor?.settingsView
+                    .tabItem {
+                        Label("Settings".localized, systemImage: "gearshape.fill")
+                    }
+                    .tag(MainRoute.settings)
+            }
+            .tint(.mint)
+        } else {
+            interactor?.authenticationView
         }
-        .tint(.mint)
     }
 }
 

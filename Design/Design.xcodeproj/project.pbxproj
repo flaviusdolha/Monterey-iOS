@@ -13,6 +13,7 @@
 		A951C96E29BCE5CA00BC972D /* MontereyNavigationElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A951C96D29BCE5CA00BC972D /* MontereyNavigationElements.swift */; };
 		A9847E042A028A0700E053EA /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE053629EF1C61007ADDF0 /* Domain.framework */; };
 		A9847E052A028A0700E053EA /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9CE053629EF1C61007ADDF0 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9924BA72A0C1AB800608BA4 /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9924BA62A0C1AB800608BA4 /* LabelStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		A951C96329BCE50600BC972D /* Design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A951C96629BCE50600BC972D /* Design.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Design.h; sourceTree = "<group>"; };
 		A951C96D29BCE5CA00BC972D /* MontereyNavigationElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontereyNavigationElements.swift; sourceTree = "<group>"; };
+		A9924BA62A0C1AB800608BA4 /* LabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyles.swift; sourceTree = "<group>"; };
 		A9CE053629EF1C61007ADDF0 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -55,6 +57,7 @@
 			children = (
 				A9106F1229D86466007CF8DE /* Category+Color.swift */,
 				A9106F0E29D855AB007CF8DE /* ImagePicker.swift */,
+				A9924BA62A0C1AB800608BA4 /* LabelStyles.swift */,
 				A951C96D29BCE5CA00BC972D /* MontereyNavigationElements.swift */,
 				A951C96529BCE50600BC972D /* Design */,
 				A951C96429BCE50600BC972D /* Products */,
@@ -170,6 +173,7 @@
 				A951C96E29BCE5CA00BC972D /* MontereyNavigationElements.swift in Sources */,
 				A9106F1329D86466007CF8DE /* Category+Color.swift in Sources */,
 				A9106F0F29D855AB007CF8DE /* ImagePicker.swift in Sources */,
+				A9924BA72A0C1AB800608BA4 /* LabelStyles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

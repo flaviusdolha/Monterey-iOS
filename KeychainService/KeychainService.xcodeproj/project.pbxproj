@@ -3,26 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A98838C9293BA41000A54D01 /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = A98838C8293BA41000A54D01 /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A98838D1293BA42E00A54D01 /* String+Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98838D0293BA42E00A54D01 /* String+Localization.swift */; };
-		A9CB8A0C2A0A83630031867B /* ConfigurationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CB8A0B2A0A83630031867B /* ConfigurationKeys.swift */; };
-		A9CE053929EF2358007ADDF0 /* Int+MonthString.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE053829EF2358007ADDF0 /* Int+MonthString.swift */; };
+		A9924BB62A0C2C3000608BA4 /* KeychainService.h in Headers */ = {isa = PBXBuildFile; fileRef = A9924BB52A0C2C3000608BA4 /* KeychainService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9924BBD2A0C2C4C00608BA4 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9924BBC2A0C2C4C00608BA4 /* KeychainService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A98838C5293BA41000A54D01 /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A98838C8293BA41000A54D01 /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
-		A98838D0293BA42E00A54D01 /* String+Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localization.swift"; sourceTree = "<group>"; };
-		A9CB8A0B2A0A83630031867B /* ConfigurationKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationKeys.swift; sourceTree = "<group>"; };
-		A9CE053829EF2358007ADDF0 /* Int+MonthString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+MonthString.swift"; sourceTree = "<group>"; };
+		A9924BB22A0C2C3000608BA4 /* KeychainService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KeychainService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9924BB52A0C2C3000608BA4 /* KeychainService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeychainService.h; sourceTree = "<group>"; };
+		A9924BBC2A0C2C4C00608BA4 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A98838C2293BA41000A54D01 /* Frameworks */ = {
+		A9924BAF2A0C2C3000608BA4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -32,108 +28,98 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A98838BB293BA41000A54D01 = {
+		A9924BA82A0C2C3000608BA4 = {
 			isa = PBXGroup;
 			children = (
-				A9CB8A0B2A0A83630031867B /* ConfigurationKeys.swift */,
-				A98838CF293BA41F00A54D01 /* Extensions */,
-				A98838C7293BA41000A54D01 /* Core */,
-				A98838C6293BA41000A54D01 /* Products */,
+				A9924BBC2A0C2C4C00608BA4 /* KeychainService.swift */,
+				A9924BB42A0C2C3000608BA4 /* KeychainService */,
+				A9924BB32A0C2C3000608BA4 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A98838C6293BA41000A54D01 /* Products */ = {
+		A9924BB32A0C2C3000608BA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A98838C5293BA41000A54D01 /* Core.framework */,
+				A9924BB22A0C2C3000608BA4 /* KeychainService.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A98838C7293BA41000A54D01 /* Core */ = {
+		A9924BB42A0C2C3000608BA4 /* KeychainService */ = {
 			isa = PBXGroup;
 			children = (
-				A98838C8293BA41000A54D01 /* Core.h */,
+				A9924BB52A0C2C3000608BA4 /* KeychainService.h */,
 			);
-			path = Core;
-			sourceTree = "<group>";
-		};
-		A98838CF293BA41F00A54D01 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				A9CE053829EF2358007ADDF0 /* Int+MonthString.swift */,
-				A98838D0293BA42E00A54D01 /* String+Localization.swift */,
-			);
-			path = Extensions;
+			path = KeychainService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		A98838C0293BA41000A54D01 /* Headers */ = {
+		A9924BAD2A0C2C3000608BA4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98838C9293BA41000A54D01 /* Core.h in Headers */,
+				A9924BB62A0C2C3000608BA4 /* KeychainService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A98838C4293BA41000A54D01 /* Core */ = {
+		A9924BB12A0C2C3000608BA4 /* KeychainService */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A98838CC293BA41000A54D01 /* Build configuration list for PBXNativeTarget "Core" */;
+			buildConfigurationList = A9924BB92A0C2C3000608BA4 /* Build configuration list for PBXNativeTarget "KeychainService" */;
 			buildPhases = (
-				A98838C0293BA41000A54D01 /* Headers */,
-				A98838C1293BA41000A54D01 /* Sources */,
-				A98838C2293BA41000A54D01 /* Frameworks */,
-				A98838C3293BA41000A54D01 /* Resources */,
+				A9924BAD2A0C2C3000608BA4 /* Headers */,
+				A9924BAE2A0C2C3000608BA4 /* Sources */,
+				A9924BAF2A0C2C3000608BA4 /* Frameworks */,
+				A9924BB02A0C2C3000608BA4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Core;
-			productName = Core;
-			productReference = A98838C5293BA41000A54D01 /* Core.framework */;
+			name = KeychainService;
+			productName = KeychainService;
+			productReference = A9924BB22A0C2C3000608BA4 /* KeychainService.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A98838BC293BA41000A54D01 /* Project object */ = {
+		A9924BA92A0C2C3000608BA4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					A98838C4293BA41000A54D01 = {
-						CreatedOnToolsVersion = 13.2.1;
-						LastSwiftMigration = 1320;
+					A9924BB12A0C2C3000608BA4 = {
+						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
-			buildConfigurationList = A98838BF293BA41000A54D01 /* Build configuration list for PBXProject "Core" */;
-			compatibilityVersion = "Xcode 13.0";
+			buildConfigurationList = A9924BAC2A0C2C3000608BA4 /* Build configuration list for PBXProject "KeychainService" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = A98838BB293BA41000A54D01;
-			productRefGroup = A98838C6293BA41000A54D01 /* Products */;
+			mainGroup = A9924BA82A0C2C3000608BA4;
+			productRefGroup = A9924BB32A0C2C3000608BA4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A98838C4293BA41000A54D01 /* Core */,
+				A9924BB12A0C2C3000608BA4 /* KeychainService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A98838C3293BA41000A54D01 /* Resources */ = {
+		A9924BB02A0C2C3000608BA4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -143,27 +129,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A98838C1293BA41000A54D01 /* Sources */ = {
+		A9924BAE2A0C2C3000608BA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A98838D1293BA42E00A54D01 /* String+Localization.swift in Sources */,
-				A9CB8A0C2A0A83630031867B /* ConfigurationKeys.swift in Sources */,
-				A9CE053929EF2358007ADDF0 /* Int+MonthString.swift in Sources */,
+				A9924BBD2A0C2C4C00608BA4 /* KeychainService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A98838CA293BA41000A54D01 /* Debug */ = {
+		A9924BB72A0C2C3000608BA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -208,7 +191,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -220,14 +203,13 @@
 			};
 			name = Debug;
 		};
-		A98838CB293BA41000A54D01 /* Release */ = {
+		A9924BB82A0C2C3000608BA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -266,7 +248,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -278,7 +260,7 @@
 			};
 			name = Release;
 		};
-		A98838CD293BA41000A54D01 /* Debug */ = {
+		A9924BBA2A0C2C3000608BA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -289,16 +271,20 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.Core;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.KeychainService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -308,7 +294,7 @@
 			};
 			name = Debug;
 		};
-		A98838CE293BA41000A54D01 /* Release */ = {
+		A9924BBB2A0C2C3000608BA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -319,16 +305,20 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.Core;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yopeso.flaviusdolha.KeychainService;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -340,25 +330,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A98838BF293BA41000A54D01 /* Build configuration list for PBXProject "Core" */ = {
+		A9924BAC2A0C2C3000608BA4 /* Build configuration list for PBXProject "KeychainService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A98838CA293BA41000A54D01 /* Debug */,
-				A98838CB293BA41000A54D01 /* Release */,
+				A9924BB72A0C2C3000608BA4 /* Debug */,
+				A9924BB82A0C2C3000608BA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A98838CC293BA41000A54D01 /* Build configuration list for PBXNativeTarget "Core" */ = {
+		A9924BB92A0C2C3000608BA4 /* Build configuration list for PBXNativeTarget "KeychainService" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A98838CD293BA41000A54D01 /* Debug */,
-				A98838CE293BA41000A54D01 /* Release */,
+				A9924BBA2A0C2C3000608BA4 /* Debug */,
+				A9924BBB2A0C2C3000608BA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A98838BC293BA41000A54D01 /* Project object */;
+	rootObject = A9924BA92A0C2C3000608BA4 /* Project object */;
 }

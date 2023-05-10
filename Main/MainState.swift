@@ -15,5 +15,6 @@ enum MainRoute: Hashable {
 
 final class MainState: ObservableObject {
     @Published var route: MainRoute = .transactions
+    @Published var isAuthenticated = false
     var transactionsSharedState = TransactionsSharedState()
 }
