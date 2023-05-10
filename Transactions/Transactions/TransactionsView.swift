@@ -21,6 +21,9 @@ public struct TransactionsView: View {
                 VStack {
                     calendarView
                     transactionTypePicker
+                    if !state.currentIncomes.isEmpty || !state.currentTransactions.isEmpty {
+                        balanceView
+                    }
                     switch state.selectedTransactionType {
                     case .expense: expenseList
                     case .income: incomeList
@@ -43,7 +46,11 @@ public struct TransactionsView: View {
             .navigationTitle("Summary".localized)
             .toolbar {
                 Button("Add".localized) {
-                    interactor?.addButtonPressed()
+                    if state.selectedTransactionType == .expense {
+                        interactor?.addButtonPressed()
+                    } else {
+                        interactor?.addIncomeButtonPressed()
+                    }
                 }
             }
             .navigationDestination(for: TransactionsRoute.self) { route in
@@ -195,8 +202,9 @@ public struct TransactionsView: View {
             } else {
                 List {
                     HStack {
-                        Text("\("Total".localized): " + String(state.currentTransactions.totalPrice) + " " + state.currency.symbol)
-                            .font(.headline)
+                        Text("\("Total expenses".localized): ")
+                        + Text(String(state.currentTransactions.totalPrice) + " " + state.currency.symbol)
+                            .fontWeight(.medium)
                         Spacer()
                     }
                     ForEach(state.currentTransactions) { transactionCategory in
@@ -229,8 +237,9 @@ public struct TransactionsView: View {
             } else {
                 List {
                     HStack {
-                        Text("\("Total".localized): " + String(state.currentIncomes.totalValue) + " " + state.currency.symbol)
-                            .font(.headline)
+                        Text("\("Total income".localized): ")
+                        + Text(String(state.currentIncomes.totalValue) + " " + state.currency.symbol)
+                            .fontWeight(.medium)
                         Spacer()
                     }
                     ForEach(state.currentIncomes) { income in
@@ -259,6 +268,38 @@ public struct TransactionsView: View {
                 UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
             }
             Spacer()
+        }
+    }
+    
+    private var balanceView: some View {
+        HStack {
+            Text("Balance: ")
+                .font(.title3)
+            + Text(balance.value + " " + state.currency.symbol)
+                .foregroundColor(balance.color)
+                .fontWeight(.bold)
+                .font(.title3)
+            Spacer()
+        }
+        .padding(.top, 4)
+        .padding(.horizontal)
+        .padding(.horizontal, 8)
+    }
+    
+    private var balance: (value: String, color: Color) {
+        let value = state.currentIncomes.totalValue - state.currentTransactions.totalPrice
+        let color = colour(for: value)
+        let stringValue = "\(value > 0.0 ? "+" : "")" + String(format: "%.2f", value)
+        return (stringValue, color)
+    }
+    
+    private func colour(for value: Float) -> Color {
+        if value == 0.0 {
+            return .black
+        } else if value < 0.0 {
+            return .red
+        } else {
+            return .green
         }
     }
 }
