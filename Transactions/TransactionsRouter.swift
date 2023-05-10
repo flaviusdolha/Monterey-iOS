@@ -14,7 +14,9 @@ import SwiftUI
 
 enum TransactionsRoute: Hashable {
     case add
+    case addIncome
     case edit(Domain.Transaction)
+    case editIncome(IncomeData)
 }
 
 // MARK: - TransactionsRouter
@@ -61,12 +63,24 @@ class TransactionsRouter: ObservableObject {
         )
     }()
     
-    func view(for route: TransactionsRoute) -> some View {
+    lazy var manageIncomeAssembly: ManageIncomeAssembly = {
+        ManageIncomeAssembly(
+            transactionStorage: transactionStorage,
+            router: self
+        )
+    }()
+    
+    func view(for route: TransactionsRoute) -> AnyView {
         switch route {
         case .add:
-            return manageTransactionAssembly.ManageTransactionView(type: .add)
+            return AnyView(manageTransactionAssembly.ManageTransactionView(type: .add))
+        case .addIncome:
+            return AnyView(manageIncomeAssembly
+                .manageIncomeView(type: .add))
         case let .edit(transaction):
-            return manageTransactionAssembly.ManageTransactionView(type: .edit(transaction))
+            return AnyView(manageTransactionAssembly.ManageTransactionView(type: .edit(transaction)))
+        case let .editIncome(income):
+            return AnyView(manageIncomeAssembly.manageIncomeView(type: .edit(income)))
         }
     }
 }

@@ -69,7 +69,7 @@ struct ManageTransactionView: View {
                     interactor?.confirmDeleteTransaction()
                 }
             }, message: {
-                Text("You are about to delete this transaction. The action can't be undone.".localized)
+                Text("You are about to delete this expense. The action can't be undone.".localized)
             })
             .sheet(isPresented: $isShowingImagePicker) {
                 ImagePicker(sourceType: .photoLibrary) { photo in
@@ -115,7 +115,7 @@ struct ManageTransactionView: View {
     }
     
     private var deleteTransactionButton: some View {
-        Button("Delete Transaction".localized) {
+        Button("Delete".localized + " " + "Expense".localized) {
             isShowingDeleteConfirmation = true
         }
         .foregroundColor(.red)
@@ -257,8 +257,8 @@ struct ManageTransactionView: View {
     
     private var navigationTitle: String {
         switch state.type {
-        case .add: return "Add Transaction".localized
-        case .edit: return "Edit Transaction".localized
+        case .add: return "Add".localized + " " + "Expense".localized
+        case .edit: return "Edit".localized + " " + "Expense".localized
         }
     }
 }

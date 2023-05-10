@@ -12,6 +12,8 @@
 		A90919B2296445A60013D096 /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90919B0296445A60013D096 /* Transaction+CoreDataProperties.swift */; };
 		A90919B5296447290013D096 /* TransactionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90919B4296447290013D096 /* TransactionStorage.swift */; };
 		A91EBD5E2A0AD47700D2F13C /* IncomeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD5D2A0AD47700D2F13C /* IncomeCategory.swift */; };
+		A91EBD6D2A0B624100D2F13C /* Categorizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD6C2A0B624100D2F13C /* Categorizable.swift */; };
+		A91EBD6F2A0B627200D2F13C /* TransactionType+Categorizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD6E2A0B627200D2F13C /* TransactionType+Categorizable.swift */; };
 		A96CF2B029B773D600BAAC4E /* ExpenseCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96CF2AF29B773D600BAAC4E /* ExpenseCategory.swift */; };
 		A970D30A293A1436004E89A9 /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = A970D309293A1436004E89A9 /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A970D317293A89DF004E89A9 /* MontereyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A970D315293A89DF004E89A9 /* MontereyModel.xcdatamodeld */; };
@@ -27,6 +29,8 @@
 		A90919B0296445A60013D096 /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A90919B4296447290013D096 /* TransactionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStorage.swift; sourceTree = "<group>"; };
 		A91EBD5D2A0AD47700D2F13C /* IncomeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategory.swift; sourceTree = "<group>"; };
+		A91EBD6C2A0B624100D2F13C /* Categorizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categorizable.swift; sourceTree = "<group>"; };
+		A91EBD6E2A0B627200D2F13C /* TransactionType+Categorizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionType+Categorizable.swift"; sourceTree = "<group>"; };
 		A96CF2AF29B773D600BAAC4E /* ExpenseCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseCategory.swift; sourceTree = "<group>"; };
 		A970D306293A1436004E89A9 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970D309293A1436004E89A9 /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		A909199E2964436F0013D096 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A91EBD6C2A0B624100D2F13C /* Categorizable.swift */,
 				A9CB8A092A0A80410031867B /* Currency.swift */,
 				A96CF2AF29B773D600BAAC4E /* ExpenseCategory.swift */,
 				A91EBD5D2A0AD47700D2F13C /* IncomeCategory.swift */,
@@ -66,6 +71,7 @@
 				A9CB8A182A0AD13C0031867B /* IncomeData+CoreDataProperties.swift */,
 				A90919AF296445A60013D096 /* Transaction+CoreDataClass.swift */,
 				A90919B0296445A60013D096 /* Transaction+CoreDataProperties.swift */,
+				A91EBD6E2A0B627200D2F13C /* TransactionType+Categorizable.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 			files = (
 				A91EBD5E2A0AD47700D2F13C /* IncomeCategory.swift in Sources */,
 				A90919B2296445A60013D096 /* Transaction+CoreDataProperties.swift in Sources */,
+				A91EBD6D2A0B624100D2F13C /* Categorizable.swift in Sources */,
 				A90919B5296447290013D096 /* TransactionStorage.swift in Sources */,
 				A90919B1296445A60013D096 /* Transaction+CoreDataClass.swift in Sources */,
 				A970D319293A8A06004E89A9 /* StorageProvider.swift in Sources */,
@@ -196,6 +203,7 @@
 				A9CB8A1A2A0AD13C0031867B /* IncomeData+CoreDataClass.swift in Sources */,
 				A9CB8A1B2A0AD13C0031867B /* IncomeData+CoreDataProperties.swift in Sources */,
 				A970D317293A89DF004E89A9 /* MontereyModel.xcdatamodeld in Sources */,
+				A91EBD6F2A0B627200D2F13C /* TransactionType+Categorizable.swift in Sources */,
 				A909199C2964420D0013D096 /* UIImageTransformer.swift in Sources */,
 				A96CF2B029B773D600BAAC4E /* ExpenseCategory.swift in Sources */,
 			);

@@ -9,8 +9,10 @@ protocol TransactionsInteractor: AnyObject {
     var state: TransactionsState { get }
     
     func addButtonPressed()
+    func addIncomeButtonPressed()
     func onAppear()
     func transactionSelected(_ transaction: Transaction)
+    func incomeSelected(_ income: IncomeData)
     func transactionCategoryPressed(_ transactionCategory: TransactionCategory)
     func dateString(from date: Date) -> String
     func monthNextButtonPressed()
@@ -35,7 +37,7 @@ final class TransactionsInteractorLive: TransactionsInteractor {
         self.router = router
         self.transactionsSharedState = transactionsSharedState
         state = TransactionsState()
-        loadTransactions()
+        loadData()
         loadCurrency()
     }
 
@@ -45,8 +47,12 @@ final class TransactionsInteractorLive: TransactionsInteractor {
         router.push(.add)
     }
     
+    func addIncomeButtonPressed() {
+        router.push(.addIncome)
+    }
+    
     func onAppear() {
-        loadTransactions()
+        loadData()
         if let addTransaction = transactionsSharedState.addTransaction, addTransaction {
             transactionsSharedState.addTransaction = nil
             router.push(.add)
@@ -55,6 +61,10 @@ final class TransactionsInteractorLive: TransactionsInteractor {
     
     func transactionSelected(_ transaction: Transaction) {
         router.push(.edit(transaction))
+    }
+    
+    func incomeSelected(_ income: IncomeData) {
+        router.push(.editIncome(income))
     }
     
     func transactionCategoryPressed(_ transactionCategory: TransactionCategory) {
@@ -92,10 +102,16 @@ final class TransactionsInteractorLive: TransactionsInteractor {
         return ""
     }
 
-    private func loadTransactions() {
+    private func loadData() {
         let transactions = transactionStorage.getTransactions()
-        state.transactionCategories = convertToTransactionCategories(transactions)
-        filterCurrentTransactionCategories()
+        state.incomes = transactionStorage.getIncomes()
+        state.transactionCategories = convertToTransactionCategories(transactions, responseInit: { category, transactions in
+            TransactionCategory(category: category, transactions: transactions)
+        }, categoryInit: { value in
+            guard let value = value else { return nil }
+            return ExpenseCategory(rawValue: value)
+        })
+        filterTransactionsData()
     }
     
     private func loadCurrency() {
@@ -105,23 +121,28 @@ final class TransactionsInteractorLive: TransactionsInteractor {
         }
     }
     
-    private func convertToTransactionCategories(_ transactions: [Domain.Transaction]) -> [TransactionCategory] {
-        var categoriesTransactions: [ExpenseCategory: [Domain.Transaction]] = [:]
-        transactions.forEach { transaction in
-            guard let transactionCategory = transaction.category,
-                  let category = ExpenseCategory(rawValue: transactionCategory)
+    private func filterTransactionsData() {
+        filterCurrentIncomes()
+        filterCurrentTransactionCategories()
+    }
+    
+    private func convertToTransactionCategories<T: Categorizable, R, C: Hashable & RawRepresentable>(_ data: [T], responseInit: (C, [T]) -> R, categoryInit: (String?) -> C?) -> [R] where C.RawValue == String {
+        var categoriesTransactions: [C: [T]] = [:]
+        data.forEach { dataElement in
+            guard let dataCategory = dataElement.category,
+                  let category = categoryInit(dataCategory)
             else { return }
             if let trans = categoriesTransactions[category] {
                 var trns = trans
-                trns.append(transaction)
+                trns.append(dataElement)
                 categoriesTransactions[category] = trns
             } else {
-                categoriesTransactions[category] = [transaction]
+                categoriesTransactions[category] = [dataElement]
             }
         }
         
         return categoriesTransactions.map { category, transactions in
-            TransactionCategory(category: category, transactions: transactions)
+            responseInit(category, transactions)
         }
     }
     
@@ -145,11 +166,23 @@ final class TransactionsInteractorLive: TransactionsInteractor {
             tc1.transactions.totalPrice > tc2.transactions.totalPrice
         })
     }
+
+    private func filterCurrentIncomes() {
+        let currentIncomes = state.incomes.filter { income in
+            let currentDateMonth = Calendar.current.dateComponents([.month, .year], from: state.selectedMonthDate)
+            guard let incomeDate = income.date else { return false }
+            let incomeDateMonth = Calendar.current.dateComponents([.month, .year], from: incomeDate)
+            return currentDateMonth.month == incomeDateMonth.month && currentDateMonth.year == incomeDateMonth.year
+        }
+        state.currentIncomes = currentIncomes.sorted(by: { i1, i2 in
+            i1.value > i2.value
+        })
+    }
     
     private func changeMonth(value: Int) {
         if let newDate = Calendar.current.date(byAdding: .month, value: value, to: state.selectedMonthDate) {
             state.selectedMonthDate = newDate
-            filterCurrentTransactionCategories()
+            filterTransactionsData()
         }
     }
 }

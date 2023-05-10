@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A9106F1529D864C8007CF8DE /* TransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9106F1429D864C8007CF8DE /* TransactionCategory.swift */; };
+		A91EBD642A0ADE7900D2F13C /* ManageIncomeAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD602A0ADE7900D2F13C /* ManageIncomeAssembly.swift */; };
+		A91EBD652A0ADE7900D2F13C /* ManageIncomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD612A0ADE7900D2F13C /* ManageIncomeInteractor.swift */; };
+		A91EBD662A0ADE7900D2F13C /* ManageIncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD622A0ADE7900D2F13C /* ManageIncomeView.swift */; };
+		A91EBD672A0ADE7900D2F13C /* ManageIncomeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD632A0ADE7900D2F13C /* ManageIncomeState.swift */; };
+		A91EBD692A0ADF6200D2F13C /* IncomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD682A0ADF6200D2F13C /* IncomeDataModel.swift */; };
 		A950B94C29C9FDCC0066E698 /* TransactionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950B94B29C9FDCC0066E698 /* TransactionData.swift */; };
 		A951C94229BCBA7000BC972D /* Transactions.h in Headers */ = {isa = PBXBuildFile; fileRef = A951C94129BCBA7000BC972D /* Transactions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A951C94C29BCBACE00BC972D /* TransactionsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A951C94829BCBACE00BC972D /* TransactionsAssembly.swift */; };
@@ -49,6 +54,11 @@
 
 /* Begin PBXFileReference section */
 		A9106F1429D864C8007CF8DE /* TransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategory.swift; sourceTree = "<group>"; };
+		A91EBD602A0ADE7900D2F13C /* ManageIncomeAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageIncomeAssembly.swift; sourceTree = "<group>"; };
+		A91EBD612A0ADE7900D2F13C /* ManageIncomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageIncomeInteractor.swift; sourceTree = "<group>"; };
+		A91EBD622A0ADE7900D2F13C /* ManageIncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageIncomeView.swift; sourceTree = "<group>"; };
+		A91EBD632A0ADE7900D2F13C /* ManageIncomeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageIncomeState.swift; sourceTree = "<group>"; };
+		A91EBD682A0ADF6200D2F13C /* IncomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeDataModel.swift; sourceTree = "<group>"; };
 		A950B94B29C9FDCC0066E698 /* TransactionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionData.swift; sourceTree = "<group>"; };
 		A951C93E29BCBA7000BC972D /* Transactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Transactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A951C94129BCBA7000BC972D /* Transactions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transactions.h; sourceTree = "<group>"; };
@@ -84,9 +94,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A91EBD5F2A0ADE2400D2F13C /* ManageIncome */ = {
+			isa = PBXGroup;
+			children = (
+				A91EBD602A0ADE7900D2F13C /* ManageIncomeAssembly.swift */,
+				A91EBD612A0ADE7900D2F13C /* ManageIncomeInteractor.swift */,
+				A91EBD622A0ADE7900D2F13C /* ManageIncomeView.swift */,
+				A91EBD632A0ADE7900D2F13C /* ManageIncomeState.swift */,
+			);
+			path = ManageIncome;
+			sourceTree = "<group>";
+		};
 		A950B94A29C9FDBD0066E698 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A91EBD682A0ADF6200D2F13C /* IncomeDataModel.swift */,
 				A950B94B29C9FDCC0066E698 /* TransactionData.swift */,
 				A9106F1429D864C8007CF8DE /* TransactionCategory.swift */,
 			);
@@ -99,6 +121,7 @@
 				A950B94A29C9FDBD0066E698 /* Models */,
 				A9DC086929BCECAA0042D4EE /* TransactionsRouter.swift */,
 				A951C95729BCBBE500BC972D /* TransactionsEnvironment.swift */,
+				A91EBD5F2A0ADE2400D2F13C /* ManageIncome */,
 				A9DC086029BCEC0A0042D4EE /* ManageTransaction */,
 				A951C94029BCBA7000BC972D /* Transactions */,
 				A951C93F29BCBA7000BC972D /* Products */,
@@ -230,15 +253,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91EBD692A0ADF6200D2F13C /* IncomeDataModel.swift in Sources */,
 				A950B94C29C9FDCC0066E698 /* TransactionData.swift in Sources */,
+				A91EBD642A0ADE7900D2F13C /* ManageIncomeAssembly.swift in Sources */,
 				A951C94F29BCBACE00BC972D /* TransactionsState.swift in Sources */,
 				A9DC086829BCEC220042D4EE /* ManageTransactionState.swift in Sources */,
 				A951C95829BCBBE500BC972D /* TransactionsEnvironment.swift in Sources */,
 				A9DC086529BCEC220042D4EE /* ManageTransactionAssembly.swift in Sources */,
+				A91EBD652A0ADE7900D2F13C /* ManageIncomeInteractor.swift in Sources */,
+				A91EBD672A0ADE7900D2F13C /* ManageIncomeState.swift in Sources */,
 				A951C94C29BCBACE00BC972D /* TransactionsAssembly.swift in Sources */,
 				A9DC086A29BCECAA0042D4EE /* TransactionsRouter.swift in Sources */,
 				A9DC086629BCEC220042D4EE /* ManageTransactionInteractor.swift in Sources */,
 				A9106F1529D864C8007CF8DE /* TransactionCategory.swift in Sources */,
+				A91EBD662A0ADE7900D2F13C /* ManageIncomeView.swift in Sources */,
 				A9DC086729BCEC220042D4EE /* ManageTransactionView.swift in Sources */,
 				A951C94D29BCBACE00BC972D /* TransactionsInteractor.swift in Sources */,
 				A951C94E29BCBACE00BC972D /* TransactionsView.swift in Sources */,
