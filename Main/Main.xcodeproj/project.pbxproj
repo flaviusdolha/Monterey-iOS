@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91EBD962A0BB2BB00D2F13C /* Reports.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91EBD952A0BB2BB00D2F13C /* Reports.framework */; };
+		A91EBD972A0BB2BB00D2F13C /* Reports.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A91EBD952A0BB2BB00D2F13C /* Reports.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A970D32B293A8E11004E89A9 /* Main.h in Headers */ = {isa = PBXBuildFile; fileRef = A970D32A293A8E11004E89A9 /* Main.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A970D337293A9181004E89A9 /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970D333293A9181004E89A9 /* MainAssembly.swift */; };
 		A970D338293A9181004E89A9 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A970D334293A9181004E89A9 /* MainInteractor.swift */; };
@@ -38,6 +40,7 @@
 				A9847E012A0289FA00E053EA /* SharedState.framework in Embed Frameworks */,
 				A9847DFD2A0289F800E053EA /* Domain.framework in Embed Frameworks */,
 				A9847DFA2A0289F700E053EA /* Core.framework in Embed Frameworks */,
+				A91EBD972A0BB2BB00D2F13C /* Reports.framework in Embed Frameworks */,
 				A9CB8A082A0A7BCE0031867B /* Settings.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -48,6 +51,7 @@
 /* Begin PBXFileReference section */
 		A90919B629644A740013D096 /* Data.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Data.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A918CE622A0149D400B5450F /* Scanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Scanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91EBD952A0BB2BB00D2F13C /* Reports.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Reports.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A951C95029BCBB3B00BC972D /* Transactions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Transactions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970D327293A8E11004E89A9 /* Main.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Main.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970D32A293A8E11004E89A9 /* Main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main.h; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 				A9847DF92A0289F700E053EA /* Core.framework in Frameworks */,
 				A9847DFE2A0289F900E053EA /* ReceiptScanner.framework in Frameworks */,
 				A9847E002A0289FA00E053EA /* SharedState.framework in Frameworks */,
+				A91EBD962A0BB2BB00D2F13C /* Reports.framework in Frameworks */,
 				A9CB8A072A0A7BCE0031867B /* Settings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +116,7 @@
 		A970D351293A9748004E89A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A91EBD952A0BB2BB00D2F13C /* Reports.framework */,
 				A9CB8A062A0A7BCE0031867B /* Settings.framework */,
 				A9847DEB2A02453F00E053EA /* SharedState.framework */,
 				A9847DC12A01594700E053EA /* ReceiptScanner.framework */,

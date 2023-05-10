@@ -2,6 +2,7 @@ import Core
 import Combine
 import Domain
 import ReceiptScanner
+import Reports
 import Settings
 import SwiftUI
 import Transactions
@@ -12,6 +13,7 @@ protocol MainInteractor: AnyObject {
     var state: MainState { get }
     var scannerView: AnyView { get }
     var transactionsView: AnyView { get }
+    var reportsView: AnyView { get }
     var settingsView: AnyView { get }
 }
 
@@ -35,6 +37,10 @@ final class MainInteractorLive: MainInteractor {
     private lazy var settingsAssembly: SettingsAssembly = {
         SettingsAssembly()
     }()
+    
+    private lazy var reportsAssembly: ReportsAssembly = {
+        ReportsAssembly()
+    }()
 
     var scannerView: AnyView {
         AnyView(scannerAssembly.scannerView())
@@ -46,6 +52,10 @@ final class MainInteractorLive: MainInteractor {
     
     var settingsView: AnyView {
         AnyView(settingsAssembly.settingsView())
+    }
+    
+    var reportsView: AnyView {
+        AnyView(reportsAssembly.reportsView())
     }
     
     // MARK: - Lifecycle

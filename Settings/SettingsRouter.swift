@@ -11,7 +11,7 @@ import SwiftUI
 // MARK: - SettingsRoute
 
 enum SettingsRoute: Hashable {
-    case currency
+    case none
 }
 
 // MARK: - SettingsRouter

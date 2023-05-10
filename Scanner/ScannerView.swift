@@ -25,6 +25,7 @@ public struct ScannerView: View {
                     .multilineTextAlignment(.center)
                     .padding()
                 HStack(spacing: 24) {
+                    Spacer()
                     VStack {
                         Button {
                             isShowingImagePickerGallery = true
@@ -57,6 +58,7 @@ public struct ScannerView: View {
                         Text("Take a photo".localized)
                             .font(.caption)
                     }
+                    Spacer()
                 }
                 .padding()
                 Spacer()
@@ -79,6 +81,9 @@ public struct ScannerView: View {
                     interactor?.didSelectPicture(photo)
                 }
             }
+            .background(
+                Color.init(uiColor: UIColor.systemGroupedBackground)
+            )
         }
         .overlay {
             if state.isLoading {

@@ -7,6 +7,7 @@ import SharedState
 enum MainRoute: Hashable {
     case transactions
     case scan
+    case reports
     case settings
 }
 
