@@ -6,12 +6,18 @@ import SwiftUI
 
 struct ManageIncomeView: View {
     
+    enum Field: Hashable {
+        case price
+    }
+    
     // MARK: - Properties
 
     var interactor: ManageIncomeInteractor?
     @ObservedObject var state: ManageIncomeState
     @State private var isShowingDeleteConfirmation = false
     @State private var isShowingDatePicker = false
+    
+    @FocusState var activeField: Field?
     
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -59,6 +65,9 @@ struct ManageIncomeView: View {
         }, message: {
             Text("You are about to delete this income. The action can't be undone.".localized)
         })
+        .onTapGesture {
+            activeField = nil
+        }
     }
     
     private var amountTextField: some View {
@@ -66,6 +75,7 @@ struct ManageIncomeView: View {
             TextField("Amount".localized, value: $state.income.value, formatter: formatter)
                 .font(.system(size: 22))
                 .keyboardType(.decimalPad)
+                .focused($activeField, equals: .price)
             Text(state.currency.symbol)
                 .font(.system(size: 22))
                 .foregroundColor(.mint)

@@ -7,6 +7,11 @@ import SwiftUI
 
 struct ManageTransactionView: View {
     
+    enum Field: Hashable {
+        case price
+        case description
+    }
+    
     // MARK: - Properties
 
     var interactor: ManageTransactionInteractor?
@@ -17,6 +22,8 @@ struct ManageTransactionView: View {
     @State private var isShowingFullScreenPicture = false
     @State private var picture: UIImage?
     @State private var price: Float = .zero
+    
+    @FocusState var activeField: Field?
     
     let formatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -86,6 +93,9 @@ struct ManageTransactionView: View {
                     self.price = price
                 })
             }
+            .onTapGesture {
+                activeField = nil
+            }
     }
     
     private var amountTextField: some View {
@@ -93,6 +103,7 @@ struct ManageTransactionView: View {
             TextField("Amount".localized, value: $price, formatter: formatter)
                 .font(.system(size: 22))
                 .keyboardType(.decimalPad)
+                .focused($activeField, equals: .price)
             Text(state.currency.symbol)
                 .font(.system(size: 22))
                 .foregroundColor(.mint)
@@ -108,6 +119,7 @@ struct ManageTransactionView: View {
     private var descriptionTextField: some View {
         TextField("Description".localized, text: $state.transactionData.note)
         .padding(12)
+        .focused($activeField, equals: .description)
         .overlay(
             RoundedRectangle(cornerRadius: 6)
                 .stroke(Color.secondary.opacity(0.5))
