@@ -66,7 +66,7 @@ final class AuthenticationInteractorLive: AuthenticationInteractor {
         guard state.type != .change else { return }
         let usesBiometric = UserDefaults.standard.bool(forKey: UserDefaultsKeys.usesBiometric)
         if usesBiometric {
-            var context = LAContext()
+            let context = LAContext()
             var error: NSError?
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
                 context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Login with Biometric".localized) { [weak self] loggedIn, error in

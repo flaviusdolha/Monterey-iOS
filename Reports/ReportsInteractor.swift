@@ -20,5 +20,12 @@ final class ReportsInteractorLive: ReportsInteractor {
     init(router: ReportsRouter) {
         self.router = router
         state = ReportsState()
+        let dateComponents = Calendar(identifier: .gregorian).dateComponents([.month, .year], from: .now)
+        if let month = dateComponents.month {
+            state.selectedMonth = month
+        }
+        if let year = dateComponents.year {
+            state.selectedYear = year
+        }
     }
 }

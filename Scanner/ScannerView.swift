@@ -18,52 +18,50 @@ public struct ScannerView: View {
 
     public var body: some View {
         NavigationStack(path: router.binding) {
-            VStack {
-                Spacer()
-                Text("Add transactions\nby scanning receipts photos.".localized)
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.center)
+            List {
+                VStack {
+                    Text("Add transactions\nby scanning receipts photos.".localized)
+                        .fontWeight(.medium)
+                        .multilineTextAlignment(.center)
+                        .padding()
+                    HStack(spacing: 24) {
+                        Spacer()
+                        VStack {
+                            Button {
+                                isShowingImagePickerGallery = true
+                            } label: {
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(.mint)
+                                        .frame(width: 72, height: 72)
+                                    Image(systemName: "photo.on.rectangle.angled")
+                                        .font(.system(size: 32))
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            Text("Import from gallery".localized)
+                                .font(.caption)
+                        }
+                        VStack {
+                            Button {
+                                isShowingImagePickerCamera = true
+                            } label: {
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(.mint)
+                                        .frame(width: 72, height: 72)
+                                    Image(systemName: "camera.fill")
+                                        .font(.system(size: 32))
+                                        .foregroundColor(.white)
+                                }
+                            }
+                            Text("Take a photo".localized)
+                                .font(.caption)
+                        }
+                        Spacer()
+                    }
                     .padding()
-                HStack(spacing: 24) {
-                    Spacer()
-                    VStack {
-                        Button {
-                            isShowingImagePickerGallery = true
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .foregroundColor(.mint)
-                                    .frame(width: 72, height: 72)
-                                Image(systemName: "photo.on.rectangle.angled")
-                                    .font(.system(size: 32))
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        Text("Import from gallery".localized)
-                            .font(.caption)
-                    }
-                    VStack {
-                        Button {
-                            isShowingImagePickerCamera = true
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .foregroundColor(.mint)
-                                    .frame(width: 72, height: 72)
-                                Image(systemName: "camera.fill")
-                                    .font(.system(size: 32))
-                                    .foregroundColor(.white)
-                            }
-                        }
-                        Text("Take a photo".localized)
-                            .font(.caption)
-                    }
-                    Spacer()
                 }
-                .padding()
-                Spacer()
-                Spacer()
-                Spacer()
             }
             .montereyNavBar()
             .montereyTabBar()
@@ -81,9 +79,6 @@ public struct ScannerView: View {
                     interactor?.didSelectPicture(photo)
                 }
             }
-            .background(
-                Color.init(uiColor: UIColor.systemGroupedBackground)
-            )
         }
         .overlay {
             if state.isLoading {
