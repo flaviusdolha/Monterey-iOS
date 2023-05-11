@@ -14,6 +14,7 @@ final class AuthenticationState: ObservableObject {
     @Published var codeFieldInputs: [String] = Array(repeating: "", count: 4)
     @Published var type: AuthenticationStateType = .login
     @Published var inputError = false
+    @Published var showBiometric = false
     
     var isValid: Bool {
         codeFieldInputs.reduce("") { $0 + $1 }.count == 4

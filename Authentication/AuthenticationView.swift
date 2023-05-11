@@ -50,6 +50,9 @@ public struct AuthenticationView: View {
         .onTapGesture {
             activeField = nil
         }
+        .onAppear {
+            interactor?.onAppear()
+        }
     }
     
     private func codeCondition(value: [String]) {

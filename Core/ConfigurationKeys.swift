@@ -10,6 +10,7 @@ import Foundation
 // MARK: - UserDefaultsKeys
 
 public struct UserDefaultsKeys {
+    public static let firstTime = "FirstTime"
     public static let currency = "Currency"
     public static let usesBiometric = "UsesBiometric"
 }

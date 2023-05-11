@@ -1,6 +1,7 @@
 import Combine
 import Core
 import KeychainService
+import LocalAuthentication
 import SwiftUI
 
 // MARK: - AuthenticationInteractor
@@ -9,6 +10,7 @@ protocol AuthenticationInteractor: AnyObject {
     var state: AuthenticationState { get }
     
     func onAuthenticateButtonPressed()
+    func onAppear()
 }
 
 // MARK: - AuthenticationInteractorLive
@@ -56,6 +58,24 @@ final class AuthenticationInteractorLive: AuthenticationInteractor {
             keychainService.save(inputCode, service: KeychainKeys.passcode.service, account: KeychainKeys.passcode.account)
             withAnimation {
                 externalRouter.send(.authenticated)
+            }
+        }
+    }
+    
+    func onAppear() {
+        guard state.type != .change else { return }
+        let usesBiometric = UserDefaults.standard.bool(forKey: UserDefaultsKeys.usesBiometric)
+        if usesBiometric {
+            var context = LAContext()
+            var error: NSError?
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Login with Biometric".localized) { [weak self] loggedIn, error in
+                    if loggedIn {
+                        withAnimation {
+                            self?.externalRouter.send(.authenticated)
+                        }
+                    }
+                }
             }
         }
     }
