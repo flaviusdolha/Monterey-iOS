@@ -20,6 +20,7 @@
 		A91EBDA12A0BB40500D2F13C /* ReportsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD9D2A0BB40500D2F13C /* ReportsInteractor.swift */; };
 		A91EBDA22A0BB40500D2F13C /* ReportsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD9E2A0BB40500D2F13C /* ReportsView.swift */; };
 		A91EBDA32A0BB40500D2F13C /* ReportsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91EBD9F2A0BB40500D2F13C /* ReportsState.swift */; };
+		A957B08B2A0D76AC00C41472 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A957B08A2A0D76AC00C41472 /* Charts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +51,7 @@
 		A91EBD9D2A0BB40500D2F13C /* ReportsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsInteractor.swift; sourceTree = "<group>"; };
 		A91EBD9E2A0BB40500D2F13C /* ReportsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsView.swift; sourceTree = "<group>"; };
 		A91EBD9F2A0BB40500D2F13C /* ReportsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsState.swift; sourceTree = "<group>"; };
+		A957B08A2A0D76AC00C41472 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/Frameworks/Charts.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91EBD922A0BB2B300D2F13C /* Domain.framework in Frameworks */,
+				A957B08B2A0D76AC00C41472 /* Charts.framework in Frameworks */,
 				A91EBD902A0BB2B300D2F13C /* Design.framework in Frameworks */,
 				A91EBD8E2A0BB2B300D2F13C /* Core.framework in Frameworks */,
 			);
@@ -100,6 +103,7 @@
 		A91EBD8A2A0BB2B300D2F13C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A957B08A2A0D76AC00C41472 /* Charts.framework */,
 				A91EBD8B2A0BB2B300D2F13C /* Core.framework */,
 				A91EBD8C2A0BB2B300D2F13C /* Design.framework */,
 				A91EBD8D2A0BB2B300D2F13C /* Domain.framework */,

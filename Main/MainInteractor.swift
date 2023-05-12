@@ -2,6 +2,7 @@ import Authentication
 import Core
 import Combine
 import Domain
+import Foundation
 import ReceiptScanner
 import Reports
 import Settings
@@ -85,8 +86,10 @@ final class MainInteractorLive: MainInteractor {
         authenticationAssembly.externalRouter.sink { [weak self] route in
             switch route {
             case .authenticated:
-                withAnimation {
-                    self?.state.isAuthenticated = true
+                DispatchQueue.main.async {
+                    withAnimation {
+                        self?.state.isAuthenticated = true
+                    }
                 }
             }
         }

@@ -19,12 +19,12 @@ struct TransactionCategory: Identifiable {
 
 extension [TransactionCategory] {
     var totalPrice: Float {
-        reduce(0) { $0 + $1.transactions.totalPrice }
+        reduce(0) { round(($0 + $1.transactions.totalPrice) * 100.0) / 100.0 }
     }
 }
 
 extension [Domain.Transaction] {
     var totalPrice: Float {
-        reduce(0) { $0 + $1.price }
+        reduce(0) { round(($0 + $1.price) * 100.0) / 100.0 }
     }
 }

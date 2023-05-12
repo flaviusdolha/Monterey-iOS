@@ -17,7 +17,7 @@ public final class ReportsAssembly {
     // MARK: - ReportsView
     
     public func reportsView() -> ReportsView {
-        let interactor = ReportsInteractorLive(router: environment.router)
+        let interactor = ReportsInteractorLive(router: environment.router, transactionStorage: environment.transactionStorage)
         let view = ReportsView(interactor: interactor, state: interactor.state, router: environment.router)
         return view
     }

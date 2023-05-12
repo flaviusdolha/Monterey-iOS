@@ -119,4 +119,12 @@ extension StorageProvider: TransactionStorage {
     public func rollback() {
         persistentContainer.viewContext.rollback()
     }
+    
+    public func reloadData() {
+        persistentContainer.loadPersistentStores { description, error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
 }

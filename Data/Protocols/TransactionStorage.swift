@@ -20,4 +20,5 @@ public protocol TransactionStorage: Storage {
     func deleteTransaction(_ transaction: Transaction)
     func deleteIncome(_ income: IncomeData)
     func rollback()
+    func reloadData()
 }

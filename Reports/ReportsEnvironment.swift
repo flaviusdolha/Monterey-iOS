@@ -12,6 +12,7 @@ import Foundation
 
 protocol ReportsEnvironment {
     var router: ReportsRouter { get }
+    var transactionStorage: TransactionStorage { get }
 }
 
 // MARK: - ReportsEnvironmentLive
