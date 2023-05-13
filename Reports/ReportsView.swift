@@ -19,10 +19,8 @@ public struct ReportsView: View {
     public var body: some View {
         NavigationStack(path: router.binding) {
             List {
-                if !state.showCharts {
-                    Section {
-                        headline
-                    }
+                Section {
+                    headline
                 }
                 Section {
                     reportsPeriod
@@ -60,6 +58,7 @@ public struct ReportsView: View {
                     }
                 }
             }
+            .scrollIndicators(.hidden)
             .montereyNavBar()
             .montereyTabBar()
             .navigationTitle("Reports".localized)

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91025542A0FFE0E00F37447 /* Color+GreenRedPercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91025532A0FFE0E00F37447 /* Color+GreenRedPercentage.swift */; };
 		A9106F0F29D855AB007CF8DE /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9106F0E29D855AB007CF8DE /* ImagePicker.swift */; };
 		A9106F1329D86466007CF8DE /* Category+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9106F1229D86466007CF8DE /* Category+Color.swift */; };
 		A951C96729BCE50600BC972D /* Design.h in Headers */ = {isa = PBXBuildFile; fileRef = A951C96629BCE50600BC972D /* Design.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A91025532A0FFE0E00F37447 /* Color+GreenRedPercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+GreenRedPercentage.swift"; sourceTree = "<group>"; };
 		A9106F0E29D855AB007CF8DE /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		A9106F1229D86466007CF8DE /* Category+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+Color.swift"; sourceTree = "<group>"; };
 		A951C96329BCE50600BC972D /* Design.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Design.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +57,7 @@
 		A951C95929BCE50600BC972D = {
 			isa = PBXGroup;
 			children = (
+				A91025532A0FFE0E00F37447 /* Color+GreenRedPercentage.swift */,
 				A9106F1229D86466007CF8DE /* Category+Color.swift */,
 				A9106F0E29D855AB007CF8DE /* ImagePicker.swift */,
 				A9924BA62A0C1AB800608BA4 /* LabelStyles.swift */,
@@ -170,6 +173,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A91025542A0FFE0E00F37447 /* Color+GreenRedPercentage.swift in Sources */,
 				A951C96E29BCE5CA00BC972D /* MontereyNavigationElements.swift in Sources */,
 				A9106F1329D86466007CF8DE /* Category+Color.swift in Sources */,
 				A9106F0F29D855AB007CF8DE /* ImagePicker.swift in Sources */,

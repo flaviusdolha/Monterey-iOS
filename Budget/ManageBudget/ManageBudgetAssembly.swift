@@ -19,11 +19,12 @@ final class ManageBudgetAssembly {
     
     // MARK: - ManageBudgetView
     
-    func manageBudgetView(type: ManageBudgetType) -> ManageBudgetView {
+    func manageBudgetView(type: ManageBudgetType, excluded: [ExpenseCategory]) -> ManageBudgetView {
         let interactor = ManageBudgetInteractorLive(
             transactionStorage: transactionStorage,
             router: router,
-            type: type
+            type: type,
+            excluded: excluded
         )
         let view = ManageBudgetView(interactor: interactor, state: interactor.state)
         return view

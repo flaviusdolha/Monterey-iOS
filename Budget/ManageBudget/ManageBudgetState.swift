@@ -16,6 +16,7 @@ final class ManageBudgetState: ObservableObject {
     @Published var currency: Currency = .usd
     @Published var category: ExpenseCategory = .none
     @Published var amount: Float = 0.0
+    @Published var excluded: [ExpenseCategory] = []
     
     init(type: ManageBudgetType) {
         self.type = type

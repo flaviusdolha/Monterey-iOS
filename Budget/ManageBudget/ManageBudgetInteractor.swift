@@ -28,17 +28,20 @@ final class ManageBudgetInteractorLive: ManageBudgetInteractor {
     init(
         transactionStorage: TransactionStorage,
         router: BudgetRouter,
-        type: ManageBudgetType
+        type: ManageBudgetType,
+        excluded: [ExpenseCategory]
     ) {
         self.transactionStorage = transactionStorage
         self.router = router
         state = ManageBudgetState(type: type)
+        state.excluded = excluded
         if case .edit(let budget) = type {
             self.budget = budget
             state.amount = budget.amount
             if let category = budget.category,
                let expenseCategory = ExpenseCategory(rawValue: category) {
                 state.category = expenseCategory
+                state.excluded = state.excluded.filter { $0 != expenseCategory }
             }
         }
         loadCurrency()

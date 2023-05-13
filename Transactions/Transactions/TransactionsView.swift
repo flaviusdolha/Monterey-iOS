@@ -98,7 +98,7 @@ public struct TransactionsView: View {
         HStack {
             ZStack {
                 GeometryReader { reader in
-                    Rectangle()
+                    RoundedRectangle(cornerRadius: 4)
                         .foregroundColor(transactionCategory.category.color.opacity(0.20))
                         .frame(width: reader.size.width * CGFloat(transactionCategory.transactions.totalPrice / state.currentTransactions.totalPrice), height: 24)
                 }
@@ -106,7 +106,7 @@ public struct TransactionsView: View {
                 HStack {
                     Text(transactionCategory.category.emoji + " " + transactionCategory.category.rawValue.capitalized.localized)
                     Spacer()
-                    Text(String(transactionCategory.transactions.totalPrice) + " " + state.currency.symbol)
+                    Text(String(transactionCategory.transactions.totalPrice) + state.currency.symbol)
                         .foregroundColor(.gray)
                 }
             }
@@ -142,7 +142,7 @@ public struct TransactionsView: View {
             Text((IncomeCategory(rawValue: income.category ?? "")?.emoji ?? "") + " " + (income.category ?? "").capitalized.localized)
                 .font(.callout)
             Spacer()
-            Text(String(income.value) + " \(state.currency.symbol)")
+            Text(String(income.value) + "\(state.currency.symbol)")
                 .font(.callout)
                 .foregroundColor(.gray)
             Image(systemName: "arrow.right")

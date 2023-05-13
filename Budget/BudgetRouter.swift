@@ -12,8 +12,8 @@ import SwiftUI
 // MARK: - BudgetRoute
 
 enum BudgetRoute: Hashable {
-    case add
-    case edit(Budget)
+    case add(excluded: [ExpenseCategory])
+    case edit(Budget, excluded: [ExpenseCategory])
 }
 
 // MARK: - BudgetRouter
@@ -59,10 +59,10 @@ class BudgetRouter: ObservableObject {
     
     func view(for route: BudgetRoute) -> some View {
         switch route {
-        case .add:
-            return AnyView(manageBudgetAssembly.manageBudgetView(type: .add))
-        case .edit(let budget):
-            return AnyView(manageBudgetAssembly.manageBudgetView(type: .edit(budget)))
+        case .add(let excluded):
+            return AnyView(manageBudgetAssembly.manageBudgetView(type: .add, excluded: excluded))
+        case .edit(let budget, let excluded):
+            return AnyView(manageBudgetAssembly.manageBudgetView(type: .edit(budget), excluded: excluded))
         }
     }
 }

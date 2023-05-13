@@ -36,3 +36,16 @@ public struct SmallLabelStyle: LabelStyle {
         }
     }
 }
+
+// MARK: - NormalLabelStyle
+
+public struct NormalLabelStyle: LabelStyle {
+    public init() {}
+    
+    public func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.icon
+            configuration.title
+        }
+    }
+}

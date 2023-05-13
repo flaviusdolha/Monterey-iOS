@@ -88,7 +88,7 @@ struct ManageBudgetView: View {
         HStack(spacing: -8) {
             Text("Category".localized + ": ")
             Picker("Category".localized, selection: $state.category) {
-                ForEach(ExpenseCategory.allCases, id: \.self) { category in
+                ForEach(ExpenseCategory.allCases.filter { !state.excluded.contains($0) }, id: \.self) { category in
                     if category == .none {
                         Text("💸 All Wallet".localized)
                     } else {
