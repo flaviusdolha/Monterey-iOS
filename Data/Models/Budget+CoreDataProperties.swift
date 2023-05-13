@@ -1,6 +1,6 @@
 //
 //  Budget+CoreDataProperties.swift
-//  
+//  Domain
 //
 //  Created by Flavius Dolha on 13.05.2023.
 //
@@ -17,6 +17,10 @@ extension Budget {
     }
 
     @NSManaged public var category: String?
-    @NSManaged public var value: Float
+    @NSManaged public var amount: Float
+
+}
+
+extension Budget : Identifiable {
 
 }

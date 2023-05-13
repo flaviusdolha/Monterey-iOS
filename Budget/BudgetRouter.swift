@@ -50,7 +50,19 @@ class BudgetRouter: ObservableObject {
         path.removeLast(path.count)
     }
     
+    lazy var manageBudgetAssembly: ManageBudgetAssembly = {
+        ManageBudgetAssembly(
+            transactionStorage: transactionStorage,
+            router: self
+        )
+    }()
+    
     func view(for route: BudgetRoute) -> some View {
-        Text("route")
+        switch route {
+        case .add:
+            return AnyView(manageBudgetAssembly.manageBudgetView(type: .add))
+        case .edit(let budget):
+            return AnyView(manageBudgetAssembly.manageBudgetView(type: .edit(budget)))
+        }
     }
 }

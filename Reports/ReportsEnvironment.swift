@@ -21,7 +21,7 @@ class ReportsEnvironmentLive: ReportsEnvironment {
     
     // MARK: - Properties
     
-    let transactionStorage: TransactionStorage = StorageProvider()
+    let transactionStorage: TransactionStorage = StorageProvider.shared
     lazy var router: ReportsRouter = {
         ReportsRouter(transactionStorage: transactionStorage)
     }()

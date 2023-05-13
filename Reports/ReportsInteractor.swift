@@ -66,7 +66,6 @@ final class ReportsInteractorLive: ReportsInteractor {
     }
     
     func onAppear() {
-        transactionStorage.reloadData()
         transactions = transactionStorage.getTransactions()
     }
     

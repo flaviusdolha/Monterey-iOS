@@ -49,6 +49,9 @@ public struct BudgetView: View {
                     }
                 }
                 .tint(.mint)
+                .onAppear {
+                    interactor?.onAppear()
+                }
         }
     }
     

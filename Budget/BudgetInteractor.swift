@@ -8,6 +8,7 @@ import SwiftUI
 protocol BudgetInteractor: AnyObject {
     var state: BudgetState { get }
     
+    func onAppear()
     func createBudgetButtonPressed()
 }
 
@@ -27,9 +28,18 @@ final class BudgetInteractorLive: BudgetInteractor {
         self.router = router
         self.transactionStorage = transactionStorage
         state = BudgetState()
+        loadData()
     }
     
     func createBudgetButtonPressed() {
-        
+        router.push(.add)
+    }
+    
+    func onAppear() {
+        loadData()
+    }
+    
+    private func loadData() {
+        state.budgets = transactionStorage.getBudgets()
     }
 }

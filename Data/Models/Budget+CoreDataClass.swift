@@ -1,6 +1,6 @@
 //
 //  Budget+CoreDataClass.swift
-//  
+//  Domain
 //
 //  Created by Flavius Dolha on 13.05.2023.
 //

@@ -21,7 +21,7 @@ class BudgetEnvironmentLive: BudgetEnvironment {
     
     // MARK: - Properties
     
-    let transactionStorage: TransactionStorage = StorageProvider()
+    let transactionStorage: TransactionStorage = StorageProvider.shared
     lazy var router: BudgetRouter = {
         BudgetRouter(transactionStorage: transactionStorage)
     }()

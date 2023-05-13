@@ -21,7 +21,7 @@ final class ManageBudgetInteractorLive: ManageBudgetInteractor {
     var state: ManageBudgetState
     private let transactionStorage: TransactionStorage
     private let router: BudgetRouter
-    private let budget: Budget? = nil
+    private var budget: Budget? = nil
     
     // MARK: - Lifecycle
 
@@ -35,7 +35,7 @@ final class ManageBudgetInteractorLive: ManageBudgetInteractor {
         state = ManageBudgetState(type: type)
         if case .edit(let budget) = type {
             self.budget = budget
-            state.value = budget.value
+            state.amount = budget.amount
             if let category = budget.category,
                let expenseCategory = ExpenseCategory(rawValue: category) {
                 state.category = expenseCategory
@@ -47,16 +47,16 @@ final class ManageBudgetInteractorLive: ManageBudgetInteractor {
     func actionButtonPressed() {
         switch state.type {
         case .add:
-            transactionStorage.saveBudget(category: state.category.rawValue, value: round(state.value * 100.0) / 100.0)
+            transactionStorage.saveBudget(category: state.category.rawValue, amount: round(state.amount * 100.0) / 100.0)
         case .edit:
             if let budget = budget {
-                transactionStorage.updateBudget(budget, category: state.category.rawValue, value: round(state.value * 100.0) / 100.0)
+                transactionStorage.updateBudget(budget, category: state.category.rawValue.lowercased(), amount: round(state.amount * 100.0) / 100.0)
             }
         }
         router.dismiss()
     }
     
-    func confirmDeleteIncome() {
+    func confirmDeleteBudget() {
         if let budget = budget {
             transactionStorage.deleteBudget(budget)
         }

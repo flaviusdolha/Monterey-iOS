@@ -24,7 +24,7 @@ class TransactionsEnvironmentLive: TransactionsEnvironment {
     // MARK: - Properties
     
     let transactionsSharedState: TransactionsSharedState
-    let transactionStorage: TransactionStorage = StorageProvider()
+    let transactionStorage: TransactionStorage = StorageProvider.shared
     lazy var router: TransactionsRouter = {
         TransactionsRouter(transactionStorage: transactionStorage, transactionsSharedState: transactionsSharedState)
     }()

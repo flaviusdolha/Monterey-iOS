@@ -28,10 +28,12 @@ public class StorageProvider {
     private var transactions: [Transaction] = []
     private var incomes: [IncomeData] = []
     private var budgets: [Budget] = []
+    
+    public static let shared = StorageProvider()
 
     // MARK: - Lifecycle
     
-    public init() {
+    private init() {
         ValueTransformer.setValueTransformer(UIImageTransformer(), forName: NSValueTransformerName("UIImageTransformer"))
         persistentContainer = PersistentContainer(name: "MontereyModel")
         persistentContainer.loadPersistentStores { description, error in
@@ -100,9 +102,9 @@ extension StorageProvider: TransactionStorage {
         updateIncome(income, date: date, value: value, category: category)
     }
     
-    public func saveBudget(category: String, value: Float) {
+    public func saveBudget(category: String, amount: Float) {
         let budget = Budget(context: persistentContainer.viewContext)
-        updateBudget(budget, category: category, value: value)
+        updateBudget(budget, category: category, amount: amount)
     }
     
     public func updateTransaction(_ transaction: Transaction, note: String, date: Date, price: Float, category: String, picture: UIImage?) {
@@ -121,9 +123,9 @@ extension StorageProvider: TransactionStorage {
         saveUpdates()
     }
     
-    public func updateBudget(_ budget: Budget, category: String, value: Float) {
+    public func updateBudget(_ budget: Budget, category: String, amount: Float) {
         budget.category = category
-        budget.value = value
+        budget.amount = amount
         saveUpdates()
     }
     
@@ -147,13 +149,5 @@ extension StorageProvider: TransactionStorage {
     
     public func rollback() {
         persistentContainer.viewContext.rollback()
-    }
-    
-    public func reloadData() {
-        persistentContainer.loadPersistentStores { description, error in
-            if let error = error {
-                print(error)
-            }
-        }
     }
 }

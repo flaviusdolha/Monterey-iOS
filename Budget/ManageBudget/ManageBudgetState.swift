@@ -15,7 +15,7 @@ final class ManageBudgetState: ObservableObject {
     @Published var isShowingConfirmDelete: Bool = false
     @Published var currency: Currency = .usd
     @Published var category: ExpenseCategory = .none
-    @Published var value: Float = 0.0
+    @Published var amount: Float = 0.0
     
     init(type: ManageBudgetType) {
         self.type = type
