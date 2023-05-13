@@ -33,11 +33,11 @@ public struct TransactionsView: View {
                     Spacer()
                     HStack {
                         Spacer()
-                        addFloatingButton
+                        addIncomeFloatingButton
                     }
                     HStack {
                         Spacer()
-                        addIncomeFloatingButton
+                        addFloatingButton
                     }
                 }
             }
@@ -75,7 +75,7 @@ public struct TransactionsView: View {
                     .font(.system(size: 28))
             }
         }
-        .padding(.horizontal)
+        .padding()
     }
     
     private var addIncomeFloatingButton: some View {
@@ -91,7 +91,7 @@ public struct TransactionsView: View {
                     .font(.system(size: 28))
             }
         }
-        .padding()
+        .padding(.horizontal)
     }
     
     private func transactionCategoryView(_ transactionCategory: TransactionCategory) -> some View {

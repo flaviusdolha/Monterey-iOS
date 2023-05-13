@@ -1,4 +1,5 @@
 import Authentication
+import Budget
 import Core
 import Combine
 import Domain
@@ -18,6 +19,7 @@ protocol MainInteractor: AnyObject {
     var reportsView: AnyView { get }
     var settingsView: AnyView { get }
     var authenticationView: AnyView { get }
+    var budgetView: AnyView { get }
 }
 
 // MARK: - MainInteractorLive
@@ -48,6 +50,10 @@ final class MainInteractorLive: MainInteractor {
     private lazy var authenticationAssembly: AuthenticationAssembly = {
         AuthenticationAssembly()
     }()
+    
+    private lazy var budgetAssembly: BudgetAssembly = {
+        BudgetAssembly()
+    }()
 
     var scannerView: AnyView {
         AnyView(scannerAssembly.scannerView())
@@ -67,6 +73,10 @@ final class MainInteractorLive: MainInteractor {
     
     var authenticationView: AnyView {
         AnyView(authenticationAssembly.authenticationView())
+    }
+    
+    var budgetView: AnyView {
+        AnyView(budgetAssembly.budgetView())
     }
     
     // MARK: - Lifecycle

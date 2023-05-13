@@ -75,7 +75,7 @@ public struct ReportsView: View {
     
     private var headline: some View {
         HStack {
-            Image(systemName: "chart.pie.fill")
+            Image(systemName: "chart.xyaxis.line")
                 .foregroundColor(.mint)
                 .font(.system(size: 64))
             VStack(spacing: 4) {

@@ -20,6 +20,11 @@ public struct MainView: View {
                         Label("Transactions".localized, systemImage: "list.bullet.rectangle")
                     }
                     .tag(MainRoute.transactions)
+                interactor?.budgetView
+                    .tabItem {
+                        Label("Budgets".localized, systemImage: "chart.pie.fill")
+                    }
+                    .tag(MainRoute.budget)
                 interactor?.scannerView
                     .tabItem {
                         Label("Scan".localized, systemImage: "barcode.viewfinder")

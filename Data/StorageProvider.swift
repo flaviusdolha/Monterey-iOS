@@ -27,6 +27,7 @@ public class StorageProvider {
     private let persistentContainer: PersistentContainer
     private var transactions: [Transaction] = []
     private var incomes: [IncomeData] = []
+    private var budgets: [Budget] = []
 
     // MARK: - Lifecycle
     
@@ -78,6 +79,17 @@ extension StorageProvider: TransactionStorage {
         }
     }
     
+    public func getBudgets() -> [Budget] {
+        let fetchRequest: NSFetchRequest<Budget> = Budget.fetchRequest()
+
+        do {
+            budgets = try persistentContainer.viewContext.fetch(fetchRequest)
+            return budgets
+        } catch {
+            return []
+        }
+    }
+    
     public func saveTransaction(note: String, date: Date, price: Float, category: String, picture: UIImage?) {
         let transaction = Transaction(context: persistentContainer.viewContext)
         updateTransaction(transaction, note: note, date: date, price: price, category: category, picture: picture)
@@ -86,6 +98,11 @@ extension StorageProvider: TransactionStorage {
     public func saveIncome(date: Date, value: Float, category: String) {
         let income = IncomeData(context: persistentContainer.viewContext)
         updateIncome(income, date: date, value: value, category: category)
+    }
+    
+    public func saveBudget(category: String, value: Float) {
+        let budget = Budget(context: persistentContainer.viewContext)
+        updateBudget(budget, category: category, value: value)
     }
     
     public func updateTransaction(_ transaction: Transaction, note: String, date: Date, price: Float, category: String, picture: UIImage?) {
@@ -104,6 +121,12 @@ extension StorageProvider: TransactionStorage {
         saveUpdates()
     }
     
+    public func updateBudget(_ budget: Budget, category: String, value: Float) {
+        budget.category = category
+        budget.value = value
+        saveUpdates()
+    }
+    
     public func deleteTransaction(_ transaction: Transaction) {
         persistentContainer.viewContext.delete(transaction)
 
@@ -112,6 +135,12 @@ extension StorageProvider: TransactionStorage {
     
     public func deleteIncome(_ income: IncomeData) {
         persistentContainer.viewContext.delete(income)
+        
+        saveUpdates()
+    }
+    
+    public func deleteBudget(_ budget: Budget) {
+        persistentContainer.viewContext.delete(budget)
         
         saveUpdates()
     }
