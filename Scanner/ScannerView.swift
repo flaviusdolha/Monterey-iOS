@@ -39,6 +39,7 @@ public struct ScannerView: View {
                                         .foregroundColor(.white)
                                 }
                             }
+                            .buttonStyle(.plain)
                             Text("Import from gallery".localized)
                                 .font(.caption)
                         }
@@ -55,6 +56,7 @@ public struct ScannerView: View {
                                         .foregroundColor(.white)
                                 }
                             }
+                            .buttonStyle(.plain)
                             Text("Take a photo".localized)
                                 .font(.caption)
                         }

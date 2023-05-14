@@ -127,6 +127,8 @@ final class BudgetInteractorLive: BudgetInteractor {
                 return false
             }.reduce(0) { round(($0 + $1.price) * 100.0) / 100.0 }
             return BudgetValue(budget: budget, totalExpensesValue: totalValue)
-        }
+        }.sorted(by: { l, r in
+            l.budget.amount > r.budget.amount
+        })
     }
 }
