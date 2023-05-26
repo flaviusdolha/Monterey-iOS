@@ -33,6 +33,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A95285222A1FDAA500CC0659 /* MontereyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontereyTests.swift; sourceTree = "<group>"; };
 		A970D2EB293A134D004E89A9 /* Monterey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monterey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A970D2EE293A134D004E89A9 /* MontereyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MontereyApp.swift; sourceTree = "<group>"; };
 		A970D2F2293A1350004E89A9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,10 +58,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A95285212A1FDAA500CC0659 /* MontereyTests */ = {
+			isa = PBXGroup;
+			children = (
+				A95285222A1FDAA500CC0659 /* MontereyTests.swift */,
+			);
+			path = MontereyTests;
+			sourceTree = "<group>";
+		};
 		A970D2E2293A134D004E89A9 = {
 			isa = PBXGroup;
 			children = (
 				A970D2ED293A134D004E89A9 /* Monterey */,
+				A95285212A1FDAA500CC0659 /* MontereyTests */,
 				A970D2EC293A134D004E89A9 /* Products */,
 				A970D310293A1512004E89A9 /* Frameworks */,
 			);
@@ -131,7 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					A970D2EA293A134D004E89A9 = {

@@ -80,7 +80,7 @@ public struct AuthenticationView: View {
         HStack(spacing: 14) {
             ForEach(0..<4, id: \.self) { index in
                 VStack(spacing: 8) {
-                    TextField("", text: $state.codeFieldInputs[index])
+                    SecureField("", text: $state.codeFieldInputs[index])
                         .keyboardType(.numberPad)
                         .textContentType(.oneTimeCode)
                         .multilineTextAlignment(.center)

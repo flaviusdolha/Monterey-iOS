@@ -1,0 +1,1026 @@
+@startuml
+' STYLE START
+hide empty members
+skinparam shadowing false
+' STYLE END
+
+
+class "SettingsInteractor" as SettingsInteractor << (P, GoldenRod) protocol >> { 
+  ~state : SettingsState
+  ~onChangePasscodePressed() 
+}
+class "SettingsEnvironment" as SettingsEnvironment << (P, GoldenRod) protocol >> { 
+  ~router : SettingsRouter 
+}
+class "ManageTransactionInteractor" as ManageTransactionInteractor << (P, GoldenRod) protocol >> { 
+  ~state : ManageTransactionState
+  ~actionButtonPressed(price:picture:)
+  ~confirmDeleteTransaction()
+  ~onAppear(_:_:) 
+}
+class "TransactionsInteractor" as TransactionsInteractor << (P, GoldenRod) protocol >> { 
+  ~state : TransactionsState
+  ~addButtonPressed()
+  ~addIncomeButtonPressed()
+  ~onAppear()
+  ~transactionSelected(_:)
+  ~incomeSelected(_:)
+  ~transactionCategoryPressed(_:)
+  ~dateString(from:)
+  ~monthNextButtonPressed()
+  ~monthPreviousButtonPressed() 
+}
+class "TransactionsEnvironment" as TransactionsEnvironment << (P, GoldenRod) protocol >> { 
+  ~transactionStorage : TransactionStorage
+  ~router : TransactionsRouter
+  ~transactionsSharedState : TransactionsSharedState 
+}
+class "ManageIncomeInteractor" as ManageIncomeInteractor << (P, GoldenRod) protocol >> { 
+  ~state : ManageIncomeState
+  ~actionButtonPressed()
+  ~confirmDeleteIncome() 
+}
+class "MainInteractor" as MainInteractor << (P, GoldenRod) protocol >> { 
+  ~state : MainState
+  ~scannerView : AnyView
+  ~transactionsView : AnyView
+  ~reportsView : AnyView
+  ~settingsView : AnyView
+  ~authenticationView : AnyView
+  ~budgetView : AnyView 
+}
+class "Storage" as Storage << (P, GoldenRod) protocol >> { 
+  +saveUpdates() 
+}
+class "Categorizable" as Categorizable << (P, GoldenRod) protocol >> { 
+  +category : String? 
+}
+class "TransactionStorage" as TransactionStorage << (P, GoldenRod) protocol >> { 
+  +getTransactions()
+  +getIncomes()
+  +getBudgets()
+  +saveTransaction(note:date:price:category:picture:)
+  +saveIncome(date:value:category:)
+  +saveBudget(category:amount:)
+  +updateTransaction(_:note:date:price:category:picture:)
+  +updateIncome(_:date:value:category:)
+  +updateBudget(_:category:amount:)
+  +deleteTransaction(_:)
+  +deleteIncome(_:)
+  +deleteBudget(_:)
+  +rollback() 
+}
+class "ScannerEnvironment" as ScannerEnvironment << (P, GoldenRod) protocol >> { 
+  ~router : ScannerRouter
+  ~externalRouter : PassthroughSubject<ExternalScannerRoute, Never>
+  ~transactionsSharedState : TransactionsSharedState
+  ~scannerService : ScannerService 
+}
+class "ScannerInteractor" as ScannerInteractor << (P, GoldenRod) protocol >> { 
+  ~state : ScannerState
+  ~didSelectPicture(_:) 
+}
+class "ScannerService" as ScannerService << (P, GoldenRod) protocol >> { 
+  ~scanReceipt(_:completion:) 
+}
+class "AuthenticationEnvironment" as AuthenticationEnvironment << (P, GoldenRod) protocol >> { 
+  ~externalRouter : PassthroughSubject<ExternalAuthenticationRoute, Never>
+  ~keychainService : KeychainService 
+}
+class "AuthenticationInteractor" as AuthenticationInteractor << (P, GoldenRod) protocol >> { 
+  ~state : AuthenticationState
+  ~onAuthenticateButtonPressed()
+  ~onAppear() 
+}
+class "ReportsInteractor" as ReportsInteractor << (P, GoldenRod) protocol >> { 
+  ~state : ReportsState
+  ~onGenerateReportsButtonPressed()
+  ~onAppear() 
+}
+class "ReportsEnvironment" as ReportsEnvironment << (P, GoldenRod) protocol >> { 
+  ~router : ReportsRouter
+  ~transactionStorage : TransactionStorage 
+}
+class "BudgetInteractor" as BudgetInteractor << (P, GoldenRod) protocol >> { 
+  ~state : BudgetState
+  ~onAppear()
+  ~createBudgetButtonPressed()
+  ~budgetItemSelected(_:)
+  ~dateString(from:)
+  ~monthNextButtonPressed()
+  ~monthPreviousButtonPressed() 
+}
+class "ManageBudgetInteractor" as ManageBudgetInteractor << (P, GoldenRod) protocol >> { 
+  ~state : ManageBudgetState
+  ~actionButtonPressed()
+  ~confirmDeleteBudget() 
+}
+class "BudgetEnvironment" as BudgetEnvironment << (P, GoldenRod) protocol >> { 
+  ~router : BudgetRouter
+  ~transactionStorage : TransactionStorage 
+}
+class "KeychainService" as KeychainService << (C, DarkSeaGreen) >> { 
+  +init()
+  +save(_:service:account:)
+  +save(_:service:account:)
+  +read(service:account:)
+  +read(service:account:type:)
+  +delete(service:account:) 
+}
+class "SettingsView" as SettingsView << (S, SkyBlue) struct >> { 
+  ~interactor : SettingsInteractor?
+  ~state : SettingsState
+  ~router : SettingsRouter
+  +body : some View 
+}
+class "SettingsRoute" as SettingsRoute << (E, LightSteelBlue) enum >> { 
+  ~changePasscode 
+}
+class "SettingsRouter" as SettingsRouter << (C, DarkSeaGreen) >> { 
+  ~path : NavigationPath
+  -cancellables
+  ~binding
+  -authenticationAssembly : AuthenticationAssembly
+  ~authenticationView : some View
+  ~init()
+  ~push(_:)
+  ~dismiss()
+  ~dismissAll()
+  ~view(for:) 
+}
+class "SettingsState" as SettingsState << (C, DarkSeaGreen) >> { 
+  ~currency : Currency
+  ~usesBiometric : Bool 
+}
+class "SettingsInteractorLive" as SettingsInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : SettingsState
+  -router : SettingsRouter
+  ~init(router:)
+  ~onChangePasscodePressed()
+  -loadCurrency()
+  -loadUsesBiometric() 
+}
+class "SettingsAssembly" as SettingsAssembly << (C, DarkSeaGreen) >> { 
+  -environment : SettingsEnvironment
+  +init()
+  +settingsView() 
+}
+class "SettingsEnvironmentLive" as SettingsEnvironmentLive << (C, DarkSeaGreen) >> { 
+  ~router : SettingsRouter 
+}
+class "RightImageLabelStyle" as RightImageLabelStyle << (S, SkyBlue) struct >> { 
+  +init()
+  +makeBody(configuration:) 
+}
+class "SmallLabelStyle" as SmallLabelStyle << (S, SkyBlue) struct >> { 
+  +init()
+  +makeBody(configuration:) 
+}
+class "NormalLabelStyle" as NormalLabelStyle << (S, SkyBlue) struct >> { 
+  +init()
+  +makeBody(configuration:) 
+}
+class "ImagePicker" as ImagePicker << (S, SkyBlue) struct >> { 
+  -presentationMode
+  -sourceType : UIImagePickerController.SourceType
+  -didSelectPhoto : (UIImage) -> Void
+  +init(sourceType:didSelectPhoto:)
+  +makeUIViewController(context:)
+  +updateUIViewController(_:context:)
+  +makeCoordinator() 
+}
+class "Coordinator" as Coordinator << (C, DarkSeaGreen) >> { 
+  +parent : ImagePicker
+  +init(_:)
+  +imagePickerController(_:didFinishPickingMediaWithInfo:) 
+}
+class "MontereyNavigationBar" as MontereyNavigationBar << (S, SkyBlue) struct >> { 
+  +body(content:) 
+}
+class "MontereyTabBar" as MontereyTabBar << (S, SkyBlue) struct >> { 
+  +body(content:) 
+}
+class "UserDefaultsKeys" as UserDefaultsKeys << (S, SkyBlue) struct >> { 
+  +{static} firstTime
+  +{static} currency
+  +{static} usesBiometric 
+}
+class "KeychainKey" as KeychainKey << (S, SkyBlue) struct >> { 
+  +service : String
+  +account : String 
+}
+class "KeychainKeys" as KeychainKeys << (S, SkyBlue) struct >> { 
+  +{static} passcode 
+}
+class "ManageTransactionView" as ManageTransactionView << (S, SkyBlue) struct >> { 
+  ~interactor : ManageTransactionInteractor?
+  ~state : ManageTransactionState
+  -isShowingDeleteConfirmation
+  -isShowingDatePicker
+  -isShowingImagePicker
+  -isShowingFullScreenPicture
+  -picture : UIImage?
+  -price : Float
+  ~activeField : Field?
+  ~formatter : NumberFormatter
+  ~body : some View
+  -amountTextField : some View
+  -descriptionTextField : some View
+  -deleteTransactionButton : some View
+  -categoryPicker : some View
+  -datePicker : some View
+  -photoView : some View
+  -fullScreenPicture : some View
+  -actionButtonTitle : String
+  -navigationTitle : String 
+}
+class "Field" as Field << (E, LightSteelBlue) enum >> { 
+  ~price
+  ~description 
+}
+class "ManageTransactionAssembly" as ManageTransactionAssembly << (C, DarkSeaGreen) >> { 
+  ~transactionStorage : TransactionStorage
+  ~router : TransactionsRouter
+  ~transactionsSharedState : TransactionsSharedState
+  ~init(transactionStorage:router:transactionsSharedState:)
+  ~ManageTransactionView(type:) 
+}
+class "ManageTransactionInteractorLive" as ManageTransactionInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : ManageTransactionState
+  -transactionStorage : TransactionStorage
+  -router : TransactionsRouter
+  -transaction : Domain.Transaction?
+  -transactionsSharedState : TransactionsSharedState
+  ~init(transactionStorage:router:type:transactionsSharedState:)
+  ~actionButtonPressed(price:picture:)
+  ~confirmDeleteTransaction()
+  ~onAppear(_:_:)
+  -loadCurrency() 
+}
+class "ManageTransactionType" as ManageTransactionType << (E, LightSteelBlue) enum >> { 
+  ~add
+  ~edit(_:) 
+}
+class "ManageTransactionState" as ManageTransactionState << (C, DarkSeaGreen) >> { 
+  ~transactionData : TransactionData
+  ~type : ManageTransactionType
+  ~isShowingConfirmDelete : Bool
+  ~currency : Currency
+  ~init(transaction:type:) 
+}
+class "TransactionCategory" as TransactionCategory << (S, SkyBlue) struct >> { 
+  ~category : ExpenseCategory
+  ~transactions : [Domain.Transaction]
+  ~isExpanded : Bool
+  ~id : ExpenseCategory 
+}
+class "TransactionData" as TransactionData << (S, SkyBlue) struct >> { 
+  ~category : ExpenseCategory
+  ~date : Date
+  ~note : String
+  ~picture : UIImage?
+  ~price : Float 
+}
+class "IncomeDataModel" as IncomeDataModel << (S, SkyBlue) struct >> { 
+  ~category : IncomeCategory
+  ~date : Date
+  ~value : Float 
+}
+class "TransactionsAssembly" as TransactionsAssembly << (C, DarkSeaGreen) >> { 
+  -environment : TransactionsEnvironment
+  +init(transactionsSharedState:)
+  +TransactionsView() 
+}
+class "TransactionType" as TransactionType << (E, LightSteelBlue) enum >> { 
+  ~expense
+  ~income 
+}
+class "TransactionsState" as TransactionsState << (C, DarkSeaGreen) >> { 
+  ~transactionCategories : [TransactionCategory]
+  ~currentTransactions : [TransactionCategory]
+  ~incomes : [IncomeData]
+  ~currentIncomes : [IncomeData]
+  ~totalPrice
+  ~selectedMonthDate
+  ~currency : Currency
+  ~selectedTransactionType : TransactionType 
+}
+class "TransactionsInteractorLive" as TransactionsInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : TransactionsState
+  -transactionStorage : TransactionStorage
+  -router : TransactionsRouter
+  -transactionsSharedState : TransactionsSharedState
+  ~init(transactionStorage:router:transactionsSharedState:)
+  ~addButtonPressed()
+  ~addIncomeButtonPressed()
+  ~onAppear()
+  ~transactionSelected(_:)
+  ~incomeSelected(_:)
+  ~transactionCategoryPressed(_:)
+  ~dateString(from:)
+  ~monthNextButtonPressed()
+  ~monthPreviousButtonPressed()
+  -monthString(components:)
+  -yearString(components:)
+  -loadData()
+  -loadCurrency()
+  -filterTransactionsData()
+  -convertToTransactionCategories(_:responseInit:categoryInit:)
+  -filterCurrentTransactionCategories()
+  -filterCurrentIncomes()
+  -changeMonth(value:) 
+}
+class "TransactionsView" as TransactionsView << (S, SkyBlue) struct >> { 
+  ~interactor : TransactionsInteractor?
+  ~state : TransactionsState
+  ~router : TransactionsRouter
+  +body : some View
+  -addFloatingButton : some View
+  -addIncomeFloatingButton : some View
+  -transactionCategoryView(_:)
+  -transactionItem(_:)
+  -incomeItem(_:)
+  -calendarView : some View
+  -expenseList : some View
+  -incomeList : some View
+  -transactionTypePicker : some View
+  -balanceView : some View
+  -balance : (value: String, color: Color)
+  -colour(for:) 
+}
+class "TransactionsEnvironmentLive" as TransactionsEnvironmentLive << (C, DarkSeaGreen) >> { 
+  ~transactionsSharedState : TransactionsSharedState
+  ~transactionStorage : TransactionStorage
+  ~router : TransactionsRouter
+  ~init(transactionsSharedState:) 
+}
+class "TransactionsRoute" as TransactionsRoute << (E, LightSteelBlue) enum >> { 
+  ~add
+  ~addIncome
+  ~edit(_:)
+  ~editIncome(_:) 
+}
+class "TransactionsRouter" as TransactionsRouter << (C, DarkSeaGreen) >> { 
+  -transactionStorage : TransactionStorage
+  -transactionsSharedState : TransactionsSharedState
+  ~path : NavigationPath
+  ~binding
+  ~init(transactionStorage:transactionsSharedState:)
+  ~push(_:)
+  ~dismiss()
+  ~dismissAll()
+  ~manageTransactionAssembly : ManageTransactionAssembly
+  ~manageIncomeAssembly : ManageIncomeAssembly
+  ~view(for:) 
+}
+class "ManageIncomeType" as ManageIncomeType << (E, LightSteelBlue) enum >> { 
+  ~add
+  ~edit(_:) 
+}
+class "ManageIncomeState" as ManageIncomeState << (C, DarkSeaGreen) >> { 
+  ~income : IncomeDataModel
+  ~type : ManageIncomeType
+  ~isShowingConfirmDelete : Bool
+  ~currency : Currency
+  ~init(income:type:) 
+}
+class "ManageIncomeView" as ManageIncomeView << (S, SkyBlue) struct >> { 
+  ~interactor : ManageIncomeInteractor?
+  ~state : ManageIncomeState
+  -isShowingDeleteConfirmation
+  -isShowingDatePicker
+  ~activeField : Field?
+  ~formatter : NumberFormatter
+  ~body : some View
+  -amountTextField : some View
+  -categoryPicker : some View
+  -datePicker : some View
+  -deleteIncomeButton : some View
+  -actionButtonTitle : String
+  -navigationTitle : String 
+}
+class "Field" as Field0 << (E, LightSteelBlue) enum >> { 
+  ~price 
+}
+class "ManageIncomeInteractorLive" as ManageIncomeInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : ManageIncomeState
+  -transactionStorage : TransactionStorage
+  -router : TransactionsRouter
+  -income : IncomeData?
+  ~init(transactionStorage:router:type:)
+  ~actionButtonPressed()
+  ~confirmDeleteIncome()
+  -loadCurrency() 
+}
+class "ManageIncomeAssembly" as ManageIncomeAssembly << (C, DarkSeaGreen) >> { 
+  ~transactionStorage : TransactionStorage
+  ~router : TransactionsRouter
+  ~init(transactionStorage:router:)
+  ~manageIncomeView(type:) 
+}
+class "MontereyApp" as MontereyApp << (S, SkyBlue) struct >> { 
+  ~body : some Scene 
+}
+class "MainInteractorLive" as MainInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : MainState
+  -cancellables
+  -scannerAssembly : ScannerAssembly
+  -transactionsAssembly : TransactionsAssembly
+  -settingsAssembly : SettingsAssembly
+  -reportsAssembly : ReportsAssembly
+  -authenticationAssembly : AuthenticationAssembly
+  -budgetAssembly : BudgetAssembly
+  ~scannerView : AnyView
+  ~transactionsView : AnyView
+  ~settingsView : AnyView
+  ~reportsView : AnyView
+  ~authenticationView : AnyView
+  ~budgetView : AnyView
+  ~init() 
+}
+class "MainRoute" as MainRoute << (E, LightSteelBlue) enum >> { 
+  ~transactions
+  ~budget
+  ~scan
+  ~reports
+  ~settings 
+}
+class "MainState" as MainState << (C, DarkSeaGreen) >> { 
+  ~route : MainRoute
+  ~isAuthenticated
+  ~transactionsSharedState 
+}
+class "MainView" as MainView << (S, SkyBlue) struct >> { 
+  ~interactor : MainInteractor?
+  ~state : MainState
+  +body : some View 
+}
+class "MainView_Previews" as MainView_Previews << (S, SkyBlue) struct >> { 
+  ~{static} previews : some View 
+}
+class "MainAssembly" as MainAssembly << (C, DarkSeaGreen) >> { 
+  +init()
+  +mainView() 
+}
+class "PersistentContainer" as PersistentContainer << (C, DarkSeaGreen) >> {  
+}
+class "StorageProvider" as StorageProvider << (C, DarkSeaGreen) >> { 
+  -persistentContainer : PersistentContainer
+  -transactions : [Transaction]
+  -incomes : [IncomeData]
+  -budgets : [Budget]
+  +{static} shared
+  -init() 
+}
+class "UIImageTransformer" as UIImageTransformer << (C, DarkSeaGreen) >> { 
+  ~transformedValue(_:)
+  ~reverseTransformedValue(_:) 
+}
+class "Budget" as Budget << (C, DarkSeaGreen) >> {  
+}
+class "ExpenseCategory" as ExpenseCategory << (E, LightSteelBlue) enum >> { 
+  +none
+  +business
+  +car
+  +clothing
+  +education
+  +food
+  +gifts
+  +grooming
+  +healthcare
+  +home
+  +leisure
+  +other
+  +subscriptions
+  +transportation 
+}
+class "Currency" as Currency << (E, LightSteelBlue) enum >> { 
+  +chf
+  +eur
+  +gbp
+  +jpy
+  +ron
+  +usd
+  +symbol : String
+  +flag : String
+  +stringDescription(withFlag:) 
+}
+class "IncomeData" as IncomeData << (C, DarkSeaGreen) >> {  
+}
+class "Transaction" as Transaction << (C, DarkSeaGreen) >> {  
+}
+class "IncomeCategory" as IncomeCategory << (E, LightSteelBlue) enum >> { 
+  +business
+  +gifts
+  +investments
+  +other
+  +salary 
+}
+class "ScannerView" as ScannerView << (S, SkyBlue) struct >> { 
+  ~interactor : ScannerInteractor?
+  ~state : ScannerState
+  ~router : ScannerRouter
+  ~isShowingImagePickerGallery
+  ~isShowingImagePickerCamera
+  +body : some View 
+}
+class "ScannerRoute" as ScannerRoute << (E, LightSteelBlue) enum >> { 
+  ~none 
+}
+class "ExternalScannerRoute" as ExternalScannerRoute << (E, LightSteelBlue) enum >> { 
+  +transaction(_:_:) 
+}
+class "ScannerRouter" as ScannerRouter << (C, DarkSeaGreen) >> { 
+  ~path : NavigationPath
+  ~binding
+  ~push(_:)
+  ~dismiss()
+  ~dismissAll()
+  ~view(for:) 
+}
+class "ScannerEnvironmentLive" as ScannerEnvironmentLive << (C, DarkSeaGreen) >> { 
+  ~transactionsSharedState : TransactionsSharedState
+  ~externalRouter
+  ~scannerService : ScannerService
+  ~router : ScannerRouter
+  ~init(transactionsSharedState:) 
+}
+class "ScannerInteractorLive" as ScannerInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : ScannerState
+  -router : ScannerRouter
+  -externalRouter : PassthroughSubject<ExternalScannerRoute, Never>
+  -transactionsSharedState : TransactionsSharedState
+  -scannerService : ScannerService
+  ~init(router:externalRouter:transactionsSharedState:scannerService:)
+  ~didSelectPicture(_:) 
+}
+class "ScannerAssembly" as ScannerAssembly << (C, DarkSeaGreen) >> { 
+  -environment : ScannerEnvironment
+  +init(transactionsSharedState:)
+  +externalRouter : AnyPublisher<ExternalScannerRoute, Never>
+  +scannerView() 
+}
+class "ScannerServiceError" as ScannerServiceError << (E, LightSteelBlue) enum >> { 
+  ~processing
+  ~didNotFound 
+}
+class "ScannerServiceLive" as ScannerServiceLive << (C, DarkSeaGreen) >> { 
+  ~scanReceipt(_:completion:) 
+}
+class "ScannerState" as ScannerState << (C, DarkSeaGreen) >> { 
+  ~isLoading
+  ~isShowingProcessingError
+  ~isShowingDidNotFoundError 
+}
+class "AuthenticationStateType" as AuthenticationStateType << (E, LightSteelBlue) enum >> { 
+  ~register
+  ~login
+  ~change 
+}
+class "AuthenticationState" as AuthenticationState << (C, DarkSeaGreen) >> { 
+  ~codeFieldInputs : [String]
+  ~type : AuthenticationStateType
+  ~inputError
+  ~showBiometric
+  ~isValid : Bool
+  ~authenticateButtonText : String 
+}
+class "AuthenticationView" as AuthenticationView << (S, SkyBlue) struct >> { 
+  ~interactor : AuthenticationInteractor?
+  ~state : AuthenticationState
+  ~activeField : Field?
+  +body : some View
+  -codeCondition(value:)
+  -codeFieldView : some View
+  -title : some View
+  -authenticateButton : some View
+  -registerTitle : some View
+  -authenticateTitle : some View
+  -activeStateForIndex(_:) 
+}
+class "Field" as Field1 << (E, LightSteelBlue) enum >> { 
+  ~first
+  ~second
+  ~third
+  ~fourth 
+}
+class "ExternalAuthenticationRoute" as ExternalAuthenticationRoute << (E, LightSteelBlue) enum >> { 
+  +authenticated 
+}
+class "AuthneticationEnvironmentLive" as AuthneticationEnvironmentLive << (C, DarkSeaGreen) >> { 
+  ~externalRouter
+  ~keychainService : KeychainService 
+}
+class "AuthenticationAssembly" as AuthenticationAssembly << (C, DarkSeaGreen) >> { 
+  -environment : AuthenticationEnvironment
+  +init()
+  +externalRouter : AnyPublisher<ExternalAuthenticationRoute, Never>
+  +authenticationView(change:) 
+}
+class "AuthenticationInteractorLive" as AuthenticationInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : AuthenticationState
+  -externalRouter : PassthroughSubject<ExternalAuthenticationRoute, Never>
+  -keychainService : KeychainService
+  -code : String?
+  ~init(externalRouter:keychainService:change:)
+  ~onAuthenticateButtonPressed()
+  ~onAppear() 
+}
+class "ReportsView" as ReportsView << (S, SkyBlue) struct >> { 
+  ~interactor : ReportsInteractor?
+  ~state : ReportsState
+  ~router : ReportsRouter
+  +body : some View
+  -headline : some View
+  -generateReportsButton : some View
+  -expensesBarChart : some View
+  -monthlyExpensesLineChart : some View
+  -reportsPeriod : some View 
+}
+class "ReportsAssembly" as ReportsAssembly << (C, DarkSeaGreen) >> { 
+  -environment : ReportsEnvironment
+  +init()
+  +reportsView() 
+}
+class "PeriodType" as PeriodType << (E, LightSteelBlue) enum >> { 
+  ~monthly
+  ~yearly 
+}
+class "ExpenseData" as ExpenseData << (S, SkyBlue) struct >> { 
+  ~category : String
+  ~totalValue : Float
+  ~id : String 
+}
+class "ExpenseMonth" as ExpenseMonth << (S, SkyBlue) struct >> { 
+  ~date : Date
+  ~totalValue : Float
+  ~id : Date 
+}
+class "ReportsState" as ReportsState << (C, DarkSeaGreen) >> { 
+  ~selectedMonth : Int
+  ~selectedYear : Int
+  ~showCharts
+  ~expenses
+  ~currency : Currency
+  ~periodType : PeriodType
+  ~periodString
+  ~expensesByMonth 
+}
+class "ReportsRoute" as ReportsRoute << (E, LightSteelBlue) enum >> { 
+  ~none 
+}
+class "ReportsRouter" as ReportsRouter << (C, DarkSeaGreen) >> { 
+  -transactionStorage : TransactionStorage
+  ~path : NavigationPath
+  ~binding
+  ~init(transactionStorage:)
+  ~push(_:)
+  ~dismiss()
+  ~dismissAll()
+  ~view(for:) 
+}
+class "ReportsInteractorLive" as ReportsInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : ReportsState
+  -router : ReportsRouter
+  -transactionStorage : TransactionStorage
+  -transactions : [Domain.Transaction]
+  ~init(router:transactionStorage:)
+  ~onGenerateReportsButtonPressed()
+  ~onAppear()
+  -getExpensesByMonth(_:)
+  -getTransactionsInCurrentPeriod()
+  -loadCurrency() 
+}
+class "ReportsEnvironmentLive" as ReportsEnvironmentLive << (C, DarkSeaGreen) >> { 
+  ~transactionStorage : TransactionStorage
+  ~router : ReportsRouter 
+}
+class "BudgetRoute" as BudgetRoute << (E, LightSteelBlue) enum >> { 
+  ~add(excluded:)
+  ~edit(_:excluded:) 
+}
+class "BudgetRouter" as BudgetRouter << (C, DarkSeaGreen) >> { 
+  -transactionStorage : TransactionStorage
+  ~path : NavigationPath
+  ~binding
+  ~init(transactionStorage:)
+  ~push(_:)
+  ~dismiss()
+  ~dismissAll()
+  ~manageBudgetAssembly : ManageBudgetAssembly
+  ~view(for:) 
+}
+class "BudgetInteractorLive" as BudgetInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : BudgetState
+  -router : BudgetRouter
+  -transactionStorage : TransactionStorage
+  -excluded
+  -budgets
+  ~init(router:transactionStorage:)
+  ~createBudgetButtonPressed()
+  ~onAppear()
+  ~budgetItemSelected(_:)
+  ~dateString(from:)
+  ~monthNextButtonPressed()
+  ~monthPreviousButtonPressed()
+  -loadData()
+  -loadCurrency()
+  -filterExcluded()
+  -monthString(components:)
+  -yearString(components:)
+  -changeMonth(value:)
+  -filterData() 
+}
+class "BudgetValue" as BudgetValue << (S, SkyBlue) struct >> { 
+  ~budget : Budget
+  ~totalExpensesValue : Float
+  ~percentange : Float
+  ~remaining : Float 
+}
+class "BudgetState" as BudgetState << (C, DarkSeaGreen) >> { 
+  ~budgets : [BudgetValue]
+  ~currency : Currency
+  ~selectedMonthDate 
+}
+class "ManageBudgetType" as ManageBudgetType << (E, LightSteelBlue) enum >> { 
+  ~add
+  ~edit(_:) 
+}
+class "ManageBudgetState" as ManageBudgetState << (C, DarkSeaGreen) >> { 
+  ~type : ManageBudgetType
+  ~isShowingConfirmDelete : Bool
+  ~currency : Currency
+  ~category : ExpenseCategory
+  ~amount : Float
+  ~excluded : [ExpenseCategory]
+  ~init(type:) 
+}
+class "ManageBudgetAssembly" as ManageBudgetAssembly << (C, DarkSeaGreen) >> { 
+  ~transactionStorage : TransactionStorage
+  ~router : BudgetRouter
+  ~init(transactionStorage:router:)
+  ~manageBudgetView(type:excluded:) 
+}
+class "ManageBudgetView" as ManageBudgetView << (S, SkyBlue) struct >> { 
+  ~interactor : ManageBudgetInteractor?
+  ~state : ManageBudgetState
+  -isShowingDeleteConfirmation
+  ~activeField : Field?
+  ~formatter : NumberFormatter
+  ~body : some View
+  -amountTextField : some View
+  -categoryPicker : some View
+  -deleteBudgetButton : some View
+  -actionButtonTitle : String
+  -navigationTitle : String 
+}
+class "Field" as Field2 << (E, LightSteelBlue) enum >> { 
+  ~value 
+}
+class "ManageBudgetInteractorLive" as ManageBudgetInteractorLive << (C, DarkSeaGreen) >> { 
+  ~state : ManageBudgetState
+  -transactionStorage : TransactionStorage
+  -router : BudgetRouter
+  -budget : Budget?
+  ~init(transactionStorage:router:type:excluded:)
+  ~actionButtonPressed()
+  ~confirmDeleteBudget()
+  -loadCurrency() 
+}
+class "BudgetEnvironmentLive" as BudgetEnvironmentLive << (C, DarkSeaGreen) >> { 
+  ~transactionStorage : TransactionStorage
+  ~router : BudgetRouter 
+}
+class "BudgetView" as BudgetView << (S, SkyBlue) struct >> { 
+  ~interactor : BudgetInteractor?
+  ~state : BudgetState
+  ~router : BudgetRouter
+  +body : some View
+  -headline : some View
+  -createBudgetFloatingButton : some View
+  -budgetItem(_:)
+  -calendarView : some View 
+}
+class "BudgetAssembly" as BudgetAssembly << (C, DarkSeaGreen) >> { 
+  -environment : BudgetEnvironment
+  +init()
+  +budgetView() 
+}
+class "TransactionsSharedState" as TransactionsSharedState << (C, DarkSeaGreen) >> { 
+  +addTransaction : Bool?
+  +picture : UIImage?
+  +price : String?
+  +init() 
+}
+class "Color" as Color << (X, Orchid) extension >> { 
+  +{static} fromRedToGreem(green:) 
+}
+class "ExpenseCategory" as ExpenseCategory3 << (X, Orchid) extension >> { 
+  +color : Color 
+}
+class "View" as View << (X, Orchid) extension >> { 
+  +montereyNavBar()
+  +montereyTabBar() 
+}
+class "Int" as Int << (X, Orchid) extension >> { 
+  +monthString : String? 
+}
+class "String" as String << (X, Orchid) extension >> { 
+  +localized : String 
+}
+class "[TransactionCategory]" as [TransactionCategory] << (X, Orchid) extension >> { 
+  ~totalPrice : Float 
+}
+class "[Domain.Transaction]" as [Domain.Transaction] << (X, Orchid) extension >> { 
+  ~totalPrice : Float 
+}
+class "TransactionData" as TransactionData4 << (X, Orchid) extension >> { 
+  ~{static} default : TransactionData 
+}
+class "Transaction" as Transaction5 << (X, Orchid) extension >> { 
+  ~data : TransactionData 
+}
+class "IncomeDataModel" as IncomeDataModel6 << (X, Orchid) extension >> { 
+  ~{static} default : IncomeDataModel 
+}
+class "IncomeData" as IncomeData7 << (X, Orchid) extension >> { 
+  ~data : IncomeDataModel 
+}
+class "[IncomeData]" as [IncomeData] << (X, Orchid) extension >> { 
+  ~totalValue : Float 
+}
+class "IncomeData" as IncomeData8 << (X, Orchid) extension >> { 
+  +id : String 
+}
+class "StorageProvider" as StorageProvider9 << (X, Orchid) extension >> { 
+  +saveUpdates() 
+}
+class "StorageProvider" as StorageProvider10 << (X, Orchid) extension >> { 
+  +getTransactions()
+  +getIncomes()
+  +getBudgets()
+  +saveTransaction(note:date:price:category:picture:)
+  +saveIncome(date:value:category:)
+  +saveBudget(category:amount:)
+  +updateTransaction(_:note:date:price:category:picture:)
+  +updateIncome(_:date:value:category:)
+  +updateBudget(_:category:amount:)
+  +deleteTransaction(_:)
+  +deleteIncome(_:)
+  +deleteBudget(_:)
+  +rollback() 
+}
+class "IncomeData" as IncomeData11 << (X, Orchid) extension >> { 
+  +category : String?
+  +date : Date?
+  +value : Float 
+}
+class "ExpenseCategory" as ExpenseCategory12 << (X, Orchid) extension >> { 
+  +emoji : String 
+}
+class "Budget" as Budget13 << (X, Orchid) extension >> { 
+  +category : String?
+  +amount : Float 
+}
+class "Budget" as Budget14 << (X, Orchid) extension >> {  
+}
+class "Transaction" as Transaction15 << (X, Orchid) extension >> { 
+  +category : String?
+  +date : Date?
+  +note : String?
+  +picture : UIImage?
+  +price : Float 
+}
+class "Transaction" as Transaction16 << (X, Orchid) extension >> {  
+}
+class "Transaction" as Transaction17 << (X, Orchid) extension >> {  
+}
+class "IncomeData" as IncomeData18 << (X, Orchid) extension >> {  
+}
+class "IncomeCategory" as IncomeCategory19 << (X, Orchid) extension >> { 
+  +emoji : String 
+}
+AnyObject <|.. SettingsInteractor : inherits
+AnyObject <|.. ManageTransactionInteractor : inherits
+AnyObject <|.. TransactionsInteractor : inherits
+AnyObject <|.. ManageIncomeInteractor : inherits
+AnyObject <|.. MainInteractor : inherits
+Storage <|.. TransactionStorage : conforms to
+AnyObject <|.. ScannerInteractor : inherits
+AnyObject <|.. AuthenticationInteractor : inherits
+AnyObject <|.. ReportsInteractor : inherits
+AnyObject <|.. BudgetInteractor : inherits
+AnyObject <|.. ManageBudgetInteractor : inherits
+View <|-- SettingsView : inherits
+Hashable -- SettingsRoute : inherits
+ObservableObject <|-- SettingsRouter : inherits
+ObservableObject <|-- SettingsState : inherits
+SettingsInteractor <|.. SettingsInteractorLive : conforms to
+SettingsEnvironment <|.. SettingsEnvironmentLive : conforms to
+LabelStyle <|-- RightImageLabelStyle : inherits
+LabelStyle <|-- SmallLabelStyle : inherits
+LabelStyle <|-- NormalLabelStyle : inherits
+UIViewControllerRepresentable <|-- ImagePicker : inherits
+NSObject <|-- Coordinator : inherits
+UIImagePickerControllerDelegate <|-- Coordinator : inherits
+UINavigationControllerDelegate <|-- Coordinator : inherits
+ViewModifier <|-- MontereyNavigationBar : inherits
+ViewModifier <|-- MontereyTabBar : inherits
+View <|-- ManageTransactionView : inherits
+Hashable -- Field : inherits
+ManageTransactionInteractor <|.. ManageTransactionInteractorLive : conforms to
+Equatable -- ManageTransactionType : inherits
+ObservableObject <|-- ManageTransactionState : inherits
+Identifiable <|-- TransactionCategory : inherits
+String -- TransactionType : inherits
+Hashable -- TransactionType : inherits
+ObservableObject <|-- TransactionsState : inherits
+TransactionsInteractor <|.. TransactionsInteractorLive : conforms to
+View <|-- TransactionsView : inherits
+TransactionsEnvironment <|.. TransactionsEnvironmentLive : conforms to
+Hashable -- TransactionsRoute : inherits
+ObservableObject <|-- TransactionsRouter : inherits
+Equatable -- ManageIncomeType : inherits
+ObservableObject <|-- ManageIncomeState : inherits
+View <|-- ManageIncomeView : inherits
+Hashable -- Field : inherits
+ManageIncomeInteractor <|.. ManageIncomeInteractorLive : conforms to
+App <|-- MontereyApp : inherits
+MainInteractor <|.. MainInteractorLive : conforms to
+Hashable -- MainRoute : inherits
+ObservableObject <|-- MainState : inherits
+View <|-- MainView : inherits
+PreviewProvider <|-- MainView_Previews : inherits
+NSPersistentContainer <|-- PersistentContainer : inherits
+ValueTransformer <|-- UIImageTransformer : inherits
+NSManagedObject <|-- Budget : inherits
+String -- ExpenseCategory : inherits
+CaseIterable -- ExpenseCategory : inherits
+String -- Currency : inherits
+CaseIterable -- Currency : inherits
+NSManagedObject <|-- IncomeData : inherits
+NSManagedObject <|-- Transaction : inherits
+String -- IncomeCategory : inherits
+CaseIterable -- IncomeCategory : inherits
+View <|-- ScannerView : inherits
+Hashable -- ScannerRoute : inherits
+ObservableObject <|-- ScannerRouter : inherits
+ScannerEnvironment <|.. ScannerEnvironmentLive : conforms to
+ScannerInteractor <|.. ScannerInteractorLive : conforms to
+Error -- ScannerServiceError : inherits
+ScannerService <|.. ScannerServiceLive : conforms to
+ObservableObject <|-- ScannerState : inherits
+ObservableObject <|-- AuthenticationState : inherits
+View <|-- AuthenticationView : inherits
+Hashable -- Field : inherits
+AuthenticationEnvironment <|.. AuthneticationEnvironmentLive : conforms to
+AuthenticationInteractor <|.. AuthenticationInteractorLive : conforms to
+View <|-- ReportsView : inherits
+Identifiable <|-- ExpenseData : inherits
+Identifiable <|-- ExpenseMonth : inherits
+ObservableObject <|-- ReportsState : inherits
+Hashable -- ReportsRoute : inherits
+ObservableObject <|-- ReportsRouter : inherits
+ReportsInteractor <|.. ReportsInteractorLive : conforms to
+ReportsEnvironment <|.. ReportsEnvironmentLive : conforms to
+Hashable -- BudgetRoute : inherits
+ObservableObject <|-- BudgetRouter : inherits
+BudgetInteractor <|.. BudgetInteractorLive : conforms to
+ObservableObject <|-- BudgetState : inherits
+Equatable -- ManageBudgetType : inherits
+ObservableObject <|-- ManageBudgetState : inherits
+View <|-- ManageBudgetView : inherits
+Hashable -- Field : inherits
+ManageBudgetInteractor <|.. ManageBudgetInteractorLive : conforms to
+BudgetEnvironment <|.. BudgetEnvironmentLive : conforms to
+View <|-- BudgetView : inherits
+Identifiable <|-- IncomeData : inherits
+Storage <|.. StorageProvider : conforms to
+TransactionStorage <|.. StorageProvider : conforms to
+Identifiable <|-- Budget : inherits
+Identifiable <|-- Transaction : inherits
+Categorizable <|.. Transaction : conforms to
+Categorizable <|.. IncomeData : conforms to
+ImagePicker+--Coordinator
+ManageTransactionView+--Field
+ManageIncomeView+--Field0
+AuthenticationView+--Field1
+ManageBudgetView+--Field2
+ExpenseCategory <.. ExpenseCategory3 : ext
+TransactionData <.. TransactionData4 : ext
+Transaction <.. Transaction5 : ext
+IncomeDataModel <.. IncomeDataModel6 : ext
+IncomeData <.. IncomeData7 : ext
+IncomeData <.. IncomeData8 : ext
+StorageProvider <.. StorageProvider9 : ext
+StorageProvider <.. StorageProvider10 : ext
+IncomeData <.. IncomeData11 : ext
+ExpenseCategory <.. ExpenseCategory12 : ext
+Budget <.. Budget13 : ext
+Budget <.. Budget14 : ext
+Transaction <.. Transaction15 : ext
+Transaction <.. Transaction16 : ext
+Transaction <.. Transaction17 : ext
+IncomeData <.. IncomeData18 : ext
+IncomeCategory <.. IncomeCategory19 : ext
+@enduml

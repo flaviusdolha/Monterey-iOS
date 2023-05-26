@@ -18,6 +18,13 @@ public protocol Storage {
     func saveUpdates()
 }
 
+// MARK: - StoreType
+
+internal enum StoreType {
+    case persisted
+    case inMemory
+}
+
 // MARK: - StorageProvider
 
 public class StorageProvider {
@@ -30,12 +37,32 @@ public class StorageProvider {
     private var budgets: [Budget] = []
     
     public static let shared = StorageProvider()
+    public static func createTemporaryStore() -> StorageProvider {
+        StorageProvider(storeType: .inMemory)
+    }
+    
+    private static var managedObjectModel: NSManagedObjectModel = {
+        let bundle = Bundle(for: StorageProvider.self)
+
+        guard let url = bundle.url(forResource: "MontereyModel", withExtension: "momd") else {
+          fatalError("Failed to locate momd file for MontereyModel")
+        }
+
+        guard let model = NSManagedObjectModel(contentsOf: url) else {
+          fatalError("Failed to load momd file for MontereyModel")
+        }
+
+        return model
+    }()
 
     // MARK: - Lifecycle
     
-    private init() {
+    private init(storeType: StoreType = .persisted) {
         ValueTransformer.setValueTransformer(UIImageTransformer(), forName: NSValueTransformerName("UIImageTransformer"))
-        persistentContainer = PersistentContainer(name: "MontereyModel")
+        persistentContainer = PersistentContainer(name: "MontereyModel", managedObjectModel: Self.managedObjectModel)
+        if storeType == .inMemory {
+            persistentContainer.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+        }
         persistentContainer.loadPersistentStores { description, error in
             if let error = error {
                 print(error)
